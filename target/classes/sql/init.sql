@@ -94,10 +94,10 @@ VALUES ('IMNU54', 'Reconnaissance des formes');
 INSERT INTO Course (Code, Title)
 VALUES ('IMNU54', 'Reconnaissance des formes');
 
-INSERT INTO Course_Session (Start_date, End_date, MaxNumber, Course_Id, Location_Id)
+INSERT INTO Course_Session (Start_date, End_date, Max_Number, Course_Id, Location_Id)
 VALUES ('2021-06-21 15:30:00', '2021-06-21 18:00:00', 32, 1, 1);
 
-INSERT INTO Course_Session (Start_date, End_date, MaxNumber, Course_Id, Location_Id)
+INSERT INTO Course_Session (Start_date, End_date, Max_Number, Course_Id, Location_Id)
 VALUES ('2021-06-28 15:30:00', '2021-06-28 18:00:00', 32, 2, 1);
 
 INSERT INTO Client (LastName, FirstName, Address, Phone, Email, Course_Session_Id)
