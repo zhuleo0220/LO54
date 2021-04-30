@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driverClassName: org.apache.derby.jdbc.ClientDriver
+    url: jdbc:derby://localhost:1527/lo54;create=true;user=lo54;password=lo54
+    username: lo54
+    password: lo54
+  jpa:
+    database-platform: org.hibernate.dialect.DerbyDialect
+    show-sql: true
+    hibernate:
+       ddl-auto: update
