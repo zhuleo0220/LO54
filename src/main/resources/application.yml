@@ -1,11 +1,26 @@
 spring:
   datasource:
     driverClassName: org.apache.derby.jdbc.ClientDriver
-    url: jdbc:derby://localhost:1527/lo54;create=true;user=lo54;password=lo54
-    username: lo54
-    password: lo54
+    url: jdbc:derby://localhost:1527/School;create=true;user=root;password=root
+    username: root
+    password: root
   jpa:
     database-platform: org.hibernate.dialect.DerbyDialect
     show-sql: true
     hibernate:
-       ddl-auto: update
+       ddl-auto: none
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 0
+  cache:
+    type: redis
+

@@ -7,6 +7,7 @@ package fr.utbm.school.core.Dao.impl;
 
 import fr.utbm.school.core.Dao.EntityCourseDao;
 import fr.utbm.school.core.entity.Course;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
@@ -26,6 +27,8 @@ public class EntityCourseDaoImpl implements EntityCourseDao {
     @PersistenceContext
     private EntityManager entityManager ;
 
+    private static final Logger logger = Logger.getLogger(EntityCourseDao.class.getName());
+
 
 
     public Course getCourseById(String courseId){
@@ -35,6 +38,8 @@ public class EntityCourseDaoImpl implements EntityCourseDao {
     }
 
     public ArrayList<Course> getCourseByKeyword(String keyword){
+        logger.info("Searching for course containing the word " + keyword + " in their title");
+
         if(keyword == null){
             return getListCourse();
         }
@@ -49,10 +54,13 @@ public class EntityCourseDaoImpl implements EntityCourseDao {
     }
 
     public ArrayList<Course> getListCourse(){
+
+        logger.trace("All course requested");
         return this.getDBListCourse();
     }
 
     public ArrayList<Course> getDBListCourse(){
+        logger.trace("All course store in JavaDB using Hibernate requested");
         ArrayList<Course> listLocation = new ArrayList<Course>();
         Query q = entityManager.createQuery("from Course");
         listLocation = (ArrayList<Course>) q.getResultList();
@@ -60,12 +68,15 @@ public class EntityCourseDaoImpl implements EntityCourseDao {
     }
 
     public void save(Course course) throws SQLException {
+        logger.trace("The course : " + course.toString() + " requested to be saved");
         entityManager.persist(course);
 
 
     }
 
     public void update(Course course) {
+        logger.trace("The course : " + course.toString() + " requested to be updated");
+
         entityManager.merge(course);
 
     }

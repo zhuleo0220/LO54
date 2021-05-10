@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/Login")
@@ -34,6 +35,13 @@ public class LoginController {
         course.setCode("TXt4");
         course.setTitle("title");
         courseService.saveCourse(course);
+    }
+
+    @RequestMapping(value = "/2", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Course> RedisTest() throws SQLException {
+
+         return courseService.getListCourse();
     }
 
 }

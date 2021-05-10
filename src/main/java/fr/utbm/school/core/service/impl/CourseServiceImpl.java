@@ -9,6 +9,7 @@ import fr.utbm.school.core.entity.Course;
 import fr.utbm.school.core.Dao.EntityCourseDao;
 import fr.utbm.school.core.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class CourseServiceImpl implements CourseService {
         return entityCourseDao.getCourseById(idCourse);
     }
 
+    @Cacheable(cacheNames = "Course_List", key = "1")
     public ArrayList<Course> getListCourse(){
         return entityCourseDao.getListCourse();
     }

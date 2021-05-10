@@ -10,6 +10,7 @@ import fr.utbm.school.core.Dao.EntityCourseSessionDao;
 import fr.utbm.school.core.entity.Client;
 import fr.utbm.school.core.entity.CourseSession;
 import fr.utbm.school.core.exceptions.CourseSessionException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,9 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
+
+    private static final Logger logger = Logger.getLogger(EntityCourseSessionDao.class.getName());
+
     @PersistenceContext
     private EntityManager entityManager ;
 
@@ -36,10 +40,13 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     private EntityClientDao entityClientDao;
 
     public CourseSession getCourseSessionById(Long courseSessionId){
+        logger.info("The course session with the id=" + courseSessionId + " requested");
+
         return entityManager.find(CourseSession.class, courseSessionId);
     }
 
     public ArrayList<CourseSession> getListCourseSession(){
+        logger.info("All course session requested");
         ArrayList<CourseSession> listCourseSession = new ArrayList<CourseSession>();
         Query q = entityManager.createQuery("from CourseSession");
         listCourseSession = (ArrayList<CourseSession>) q.getResultList();
@@ -47,8 +54,10 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     }
 
     public ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse){
+        logger.info("The course session of course with the id=" + idCourse + " requested");
 
-	Query query = entityManager.createQuery("FROM CourseSession CSS WHERE CSS.course.code = :courseId");
+
+        Query query = entityManager.createQuery("FROM CourseSession CSS WHERE CSS.course.code = :courseId");
         query.setParameter("courseId", idCourse);
 
 	ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
@@ -58,6 +67,7 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     }
 
     public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId){
+        logger.info("Course session search for giving parameter");
 
 
         String sqlQuery = "FROM CourseSession CSS";
@@ -89,6 +99,7 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     }
 
     public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode){
+        logger.info("Course session search for giving parameter");
 
         if(courseCode == null){
             return this.searchCourseSessionByParameter(date, locationId);
@@ -125,6 +136,8 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     }
 
     public int getPercentStudent(Long courseSessionId){
+        logger.info("The percent of course session filled for id=" + courseSessionId + " is requested");
+
         int percent;
 
         CourseSession css  = entityManager.find(CourseSession.class, courseSessionId);
@@ -144,17 +157,30 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     }
 
     public void save(CourseSession courseSession) throws CourseSessionException {
+        logger.info("Course session : " + courseSession.toString() + " requested to be saved");
+
         if(courseSession.getStartDate().compareTo(courseSession.getEndDate()) > 0){
+            logger.error("The start date is after the end date of the session");
+
             throw new CourseSessionException("The start date is after the end date of the session");
         }else if(courseSession.getStartDate().compareTo(Timestamp.from(Instant.now())) < 0){
+            logger.error("The start date is before the date");
+
             throw new CourseSessionException("The start date is before the date");
         }
 
 
         entityManager.persist(courseSession);
+        logger.info("The course session : " + courseSession.toString() + " have been saved");
+
     }
 
     public void update(CourseSession courseSession) {
+
+        logger.info("Course session : " + courseSession.toString() + " requested to be updated");
         entityManager.merge(courseSession);
+        logger.info("The course session : " + courseSession.toString() + " have been updated");
+
+
     }
 }
