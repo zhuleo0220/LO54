@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : addLocation
     Created on : 7 mai 2021, 20:55:09
     Author     : neil
@@ -56,7 +56,7 @@
 
                         // Get an array of Cookies associated with the this domain
                         cookies = request.getCookies();
-                       
+
                         if(cookies != null) {
 
                             for (int i = 0; i < cookies.length; i++) {
@@ -65,13 +65,13 @@
                                     found = true;
                                     out.println("<button class=\"button button2\" onclick=\"location.href='/client/userAccount.jsp?email=" + cookie.getValue() + "';\">Mon compte</button>");
                                 }
-                            }   
+                            }
                         }
-                        
+
                         if(!found){
                             out.println("<button class=\"button button2\" onclick=\"document.getElementById('id01').style.display='block'\">Se connecter</button>");
                         }
-                        
+
                      %>
                 </ul>
             </div>
@@ -94,17 +94,17 @@
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
     </form>
-</div>                
-                
+</div>
+
 <section class="form7 cid-svAgcG8APk" id="form7-n">
     <div class="container">
         <div class="mbr-section-head">
             <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>Ajouter une ville</strong></h3>  
+                <strong>Ajouter une ville</strong></h3>
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="/client/addLocationServlet" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="6HgF1tgkzsSC7ks/0UM2f9IwQg133pzQLRrTbsJQNAIZAO+YNF8IL3SJXOcRl9iVfCPfTWNvwikVz6m+M+hMIZ46I706Bekjz6ce79+30J85ZL21thaW0GCLMnWWRSPK">
+                <form action="/Location/add" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="6HgF1tgkzsSC7ks/0UM2f9IwQg133pzQLRrTbsJQNAIZAO+YNF8IL3SJXOcRl9iVfCPfTWNvwikVz6m+M+hMIZ46I706Bekjz6ce79+30J85ZL21thaW0GCLMnWWRSPK">
                     <p class="mbr-text mbr-fonts-style align-center mb-4 display-7">
                         Entrer les informations ci-dessous pour ajouter le nouveau cours</p>
                     <div class="row">

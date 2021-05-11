@@ -13,42 +13,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Login")
-public class LoginController {
-    @Autowired
-    private UserService userService;
+@RequestMapping("/Location")
+public class LocationController {
 
-    @Autowired
-    private CourseService courseService;
 
     @Autowired
     private LocationService locationService;
 
 
-    @RequestMapping(value = "/1", method = RequestMethod.GET)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public void LocationTest() throws SQLException {
-        Location location=new Location();
-        location.setCity("City");
+    public void AddLocation(Location location) throws SQLException {
         locationService.saveLocation(location);
 
     }
 
-    @RequestMapping(value = "/2", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Course> RedisTest() throws SQLException {
+    @RequestMapping(value = "/addpage", method = RequestMethod.GET)
+    public String LocationPage() throws SQLException {
 
-         return courseService.getListCourse();
+        return "addLocation";
     }
 
-    @RequestMapping(value = "/3", method = RequestMethod.GET)
-    public String JspTest(Model model) throws SQLException {
-         return "home";
-    }
 
 }
