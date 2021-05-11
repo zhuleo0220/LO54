@@ -60,7 +60,7 @@ public class EntityCourseDaoImpl implements EntityCourseDao {
     }
 
     public ArrayList<Course> getDBListCourse(){
-        logger.trace("All course store in JavaDB using Hibernate requested");
+        logger.info("All course store in JavaDB using Hibernate requested");
         ArrayList<Course> listLocation = new ArrayList<Course>();
         Query q = entityManager.createQuery("from Course");
         listLocation = (ArrayList<Course>) q.getResultList();

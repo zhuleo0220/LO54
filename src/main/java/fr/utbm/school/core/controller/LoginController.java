@@ -1,7 +1,9 @@
 package fr.utbm.school.core.controller;
 
 import fr.utbm.school.core.entity.Course;
+import fr.utbm.school.core.entity.Location;
 import fr.utbm.school.core.service.CourseService;
+import fr.utbm.school.core.service.LocationService;
 import fr.utbm.school.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,20 +23,17 @@ public class LoginController {
     @Autowired
     private CourseService courseService;
 
-    public static void main(String[] args) {
-        Course course=new Course();
-        course.setCode("TXt4");
-        course.setTitle("title");
+    @Autowired
+    private LocationService locationService;
 
-    }
 
     @RequestMapping(value = "/1", method = RequestMethod.GET)
     @ResponseBody
-    public void test() throws SQLException {
-        Course course=new Course();
-        course.setCode("TXt4");
-        course.setTitle("title");
-        courseService.saveCourse(course);
+    public void LocationTest() throws SQLException {
+        Location location=new Location();
+        location.setCity("City");
+        locationService.saveLocation(location);
+
     }
 
     @RequestMapping(value = "/2", method = RequestMethod.GET)
