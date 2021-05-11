@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.HttpCookie;
 import java.sql.SQLException;
@@ -43,10 +45,12 @@ public class LoginController {
 
 
     @RequestMapping(value = "/doLogin.do", method = RequestMethod.POST)
-    public String doLogin(@RequestParam("email") String email, HttpSession session, HttpServletRequest request)  {
+    public String doLogin(@RequestParam("email") String email, HttpSession session, HttpServletResponse response)  {
 System.out.println("1");
         if (!clientService.searchClientByEmail(email).isEmpty()){
             session.setAttribute("emailUser",email);
+            Cookie c=new Cookie ("emailUser",email);
+            response.addCookie(c);
             logger.info("logging with user "+ email);
             return "home";
 
