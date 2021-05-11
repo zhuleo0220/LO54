@@ -16,6 +16,8 @@ import java.util.ArrayList;
 public interface ClientService {
     public Client searchClientById(Long idClient);
 
+    public ArrayList<Client> searchClientByEmail(String email);
+
     public ArrayList<Client> getListClient();
 
     public ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId);

@@ -14,6 +14,9 @@ import java.util.ArrayList;
  */
 public interface EntityClientDao {
 
+
+    public ArrayList<Client> searchClientByEmail(String email);
+
     public Client getClientById(Long clientId);
 
     public ArrayList<Client> getListClient();

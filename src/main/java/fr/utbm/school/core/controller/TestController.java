@@ -16,26 +16,41 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Location")
-public class LocationController {
+@RequestMapping("/Test")
+public class TestController {
 
+
+    @Autowired
+    private CourseService courseService;
 
     @Autowired
     private LocationService locationService;
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/1", method = RequestMethod.GET)
     @ResponseBody
-    public String AddLocation(Location location) throws SQLException {
+    public void LocationTest() throws SQLException {
+        Location location=new Location();
+        location.setCity("City");
         locationService.saveLocation(location);
-        return "home";
 
     }
 
-    @RequestMapping(value = "/addpage", method = RequestMethod.GET)
-    public String LocationPage() throws SQLException {
+    @RequestMapping(value = "/2", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Course> RedisTest() throws SQLException {
 
-        return "addLocation";
+        return courseService.getListCourse();
+    }
+
+    @RequestMapping(value = "/3", method = RequestMethod.GET)
+    public String JspTest(Model model) throws SQLException {
+        return "home";
+    }
+    @RequestMapping(value = "/4", method = RequestMethod.GET)
+    public String NavBarTest() throws SQLException {
+        return "navBar";
+
     }
 
 

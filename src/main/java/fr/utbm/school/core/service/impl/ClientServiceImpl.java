@@ -33,6 +33,11 @@ public class ClientServiceImpl implements ClientService {
         return entityClientDao.getClientById(idClient);
     }
 
+
+    public ArrayList<Client> searchClientByEmail(String email) {
+        return entityClientDao.searchClientByEmail(email);
+    }
+
     public ArrayList<Client> getListClient(){
         return entityClientDao.getListClient();
     }

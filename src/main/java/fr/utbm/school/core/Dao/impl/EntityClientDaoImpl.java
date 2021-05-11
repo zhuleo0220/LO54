@@ -36,6 +36,20 @@ public class EntityClientDaoImpl implements EntityClientDao {
         return entityManager.find(Client.class, clientId);
     }
 
+    public ArrayList<Client> searchClientByEmail(String userEmail){
+        logger.info("Client with the email=" + userEmail + " requested");
+
+        Query query = entityManager.createQuery("FROM Client CLI WHERE CLI.email = :emailUser");
+        query.setParameter("emailUser", userEmail);
+
+        ArrayList<Client> clientList = new ArrayList<Client>();
+        clientList = (ArrayList<Client>) query.getResultList();
+
+        logger.info(String.valueOf(clientList.size()) + " clients found");
+
+        return clientList;
+    }
+
     public ArrayList<Client> getListClient(){
         logger.info("List of all Client requested");
         ArrayList<Client> listClient = new ArrayList<Client>();

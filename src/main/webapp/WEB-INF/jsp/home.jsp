@@ -1,10 +1,11 @@
-<%-- 
+<%--
     Document   : home
     Created on : 28 avr. 2021, 17:28:48
     Author     : Neil FARMER/Zhu RUIQING
 --%>
 
 <%@page import="java.util.Arrays"%>
+<%@ page import="org.hibernate.Session" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html  >
@@ -49,33 +50,34 @@
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="addLocation.jsp">Ajouter une ville</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="addCourseForm.jsp">Ajouter un cours</a></li>
                     <%
-                        Cookie cookie = null;
-                        Cookie[] cookies = null;
+                        HttpSession cookie = null;
                         boolean found = false;
+                        Object emailUser=null;
 
                         // Get an array of Cookies associated with the this domain
-                        cookies = request.getCookies();
-                       
-                        if(cookies != null) {
+                        cookie = request.getSession();
 
-                            for (int i = 0; i < cookies.length; i++) {
-                                cookie = cookies[i];
-                                if(cookie.getName().equals("emailUser")){
+                        if(cookie != null) {
+
+
+                            emailUser=cookie.getAttribute("emailUser");
+
+                                if(emailUser!=null){
                                     found = true;
-                                    out.println("<button class=\"button button2\" onclick=\"location.href='/client/userAccount.jsp?email=" + cookie.getValue() + "';\">Mon compte</button>");
+                                    out.println("<button class=\"button button2\" onclick=\"location.href='/client/userAccount.jsp?email=" + emailUser + "';\">Mon compte</button>");
                                 }
-                            }   
+
                         }
-                        
+
                         if(!found){
                             out.println("<button class=\"button button2\" onclick=\"document.getElementById('id01').style.display='block'\">Se connecter</button>");
                         }
-                        
+
                      %>
-                </ul> 
+                </ul>
             </div>
         </div>
-           
+
         <%
             String message = request.getParameter("success");
 
@@ -85,14 +87,14 @@
                 out.println("<strong>Succès!</strong> " + message);
                 out.println("</div>");
             }
-        %>        
-                
+        %>
+
     </nav>
 </section>
 
 <!-- Modal HTML -->
 <div id="id01" class="modal">
-    <form class="modal-content animate" action="/client/connectionServlet" method="POST">
+    <form class="modal-content animate" action="/Login/doLogin.do" method="POST">
         <p></p>
         <h1 style="text-align:center"><strong>Login</strong></h1>
 
@@ -112,7 +114,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-3 display-1"><strong>École</strong></h1>
-                
+
                 <p class="mbr-text mbr-fonts-style mbr-white display-7">
                     Projet de catalogue de matière d'une école, réalisé dans le cadre du projet de LO54</p>
                 <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="listCourse.jsp">Voir le catalogue</a></div>
@@ -134,7 +136,7 @@
                     </div>
                     <div class="item-content">
                         <h5 class="item-title mbr-fonts-style display-7"><strong>Catalogue des cours</strong></h5>
-                        
+
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver le cours que vous souhaitez depuis le catalogue des cours.</p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="listCourse.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
@@ -147,7 +149,7 @@
                     </div>
                     <div class="item-content">
                         <h5 class="item-title mbr-fonts-style display-7"><strong>Rechercher un cours</strong></h5>
-                        
+
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver un cours grâce à son intitulé.</p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="searchCourse.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
@@ -160,7 +162,7 @@
                     </div>
                     <div class="item-content">
                         <h5 class="item-title mbr-fonts-style display-7"><strong>Rechercher une session</strong></h5>
-                        
+
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver une session proche de chez-vous et quand vous le souhaitez.<br></p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2"><a href="searchCourseSession.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
@@ -168,6 +170,6 @@
             </div>
         </div>
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"></section><script src="ressources/assets/web/ressources/assets/jquery/jquery.min.js"></script>  <script src="ressources/assets/popper/popper.min.js"></script>  <script src="ressources/assets/tether/tether.min.js"></script>  <script src="ressources/assets/bootstrap/js/bootstrap.min.js"></script>  <script src="ressources/assets/smoothscroll/smooth-scroll.js"></script>  <script src="ressources/assets/dropdown/js/nav-dropdown.js"></script>  <script src="ressources/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="ressources/assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="ressources/assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"></section><script src="ressources/assets/web/ressources/assets/jquery/jquery.min.js"></script>  <script src="ressources/assets/popper/popper.min.js"></script>  <script src="ressources/assets/tether/tether.min.js"></script>  <script src="ressources/assets/bootstrap/js/bootstrap.min.js"></script>  <script src="ressources/assets/smoothscroll/smooth-scroll.js"></script>  <script src="ressources/assets/dropdown/js/nav-dropdown.js"></script>  <script src="ressources/assets/dropdown/js/navbar-dropdown.js"></script>  <script src="ressources/assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="ressources/assets/theme/js/script.js"></script>
 </body>
 </html>
