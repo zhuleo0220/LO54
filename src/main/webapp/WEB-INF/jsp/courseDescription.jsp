@@ -16,8 +16,9 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
                 <blockquote>
-                    <h5 class="mbr-section-title mbr-fonts-style mb-2 display-7"><strong><% out.println(request.getParameter("course")); %></strong></h5>
-                <p class="mbr-text mbr-fonts-style display-4"><% out.println(fr.utbm.school.core.service.CourseService.searchCourseById(request.getParameter("course")).getTitle()); %></p></blockquote>
+                    <h5 class="mbr-section-title mbr-fonts-style mb-2 display-7"><strong>${courseCode}</strong></h5>
+                    <p class="mbr-text mbr-fonts-style display-4">${courseTitle}</p>
+                </blockquote>
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
             <h3 class="mbr-section-title mbr-fonts-style mb-0 display-2">
                 <strong>Liste des session</strong></h3>
         </div>
-        <% out.println(fr.utbm.school.web.controller.CourseSessionController.getListCourseSession(request.getParameter("course"))); %>
+        ${courseSessionFound}
     </div>
 </section>
 <section class="content11 cid-svAdpaxaD7" id="content11-f">
@@ -37,7 +38,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
                 <div class="mbr-section-btn align-center">
-                    <% out.println("<a class=\"btn btn-primary display-4\" href=\"/client/addCourseSession.jsp?course=" + request.getParameter("course") + "\">Ajouter une nouvelle session</a>"); %>
+                    ${buttonAddCourseSession}
                 </div>
             </div>
         </div>

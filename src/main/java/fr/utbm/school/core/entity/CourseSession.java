@@ -65,6 +65,15 @@ public class CourseSession implements Serializable {
         this.location = location;
     }
 
+    public CourseSession(Timestamp startDate, Timestamp endDate,
+                         Integer maxStudent, Course course, Location location) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.maxStudent = maxStudent;
+        this.course = course;
+        this.location = location;
+    }
+
     public Long getId() {
         return id;
     }

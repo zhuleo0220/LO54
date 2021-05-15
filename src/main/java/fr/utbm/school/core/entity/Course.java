@@ -42,6 +42,10 @@ public class Course implements Serializable {
         this.title = title;
     }
 
+    public Course(String title) {
+        this.title = title;
+    }
+
     public Course(Course course) {
         this.code = course.getCode();
         this.title = course.getTitle();

@@ -20,7 +20,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="/client/registerCourseSessionServlet" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name">
+                <form action="/Client/add" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name">
                     <input type="hidden" name="courseSession" value="1">
                     <p class="mbr-text mbr-fonts-style align-center mb-4 display-7">
                         Entrer les informations ci-dessous pour ajouter le nouveau cours</p>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="courseSessionId">
-                            <% out.println("<input hidden=\"hidden\" type=\"text\" name=\"courseSessionId\" data-form-field=\"courseSessionId\" class=\"form-control\" value=\"" + request.getParameter("courseSession") + "\" id=\"courseSessionId\">"); %>
+                            ${courseSessionValue}
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="lastname">
                             <input type="text" name="lastname" placeholder="Nom" data-form-field="lastname" class="form-control" value="" id="lastname-form7-l" pattern="[a-zA-Z]+" required>

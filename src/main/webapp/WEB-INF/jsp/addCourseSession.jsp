@@ -19,7 +19,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="/client/addCourseSessionServlet" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name">
+                <form action="/CourseSession/add" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name">
                     <p class="mbr-text mbr-fonts-style align-center mb-4 display-7">
                         Entrer les informations ci-dessous pour ajouter une nouvelle session</p>
                     <div class="row">
@@ -30,17 +30,10 @@
                     </div>
                     <div class="dragArea row">
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="courseCode">
-                            <% out.println("<input hidden=\"hidden\" type=\"text\" name=\"courseCode\" data-form-field=\"courseCode\" class=\"form-control\" value=\"" + request.getParameter("course") + "\" id=\"courseCode\">"); %>
+                            ${courseSelected}
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="locationId">
-                            <select id="location_id" name="locationId">
-                                <option value="" disabled>--Choisir une ville--</option>
-                                <%
-                                    for(Location lo:fr.utbm.school.core.service.LocationService.getListLocation()){
-                                        out.println("<option value=\"" + lo.getId() + "\">" + lo.getCity() + "</option>");
-                                    }
-                                %>
-                            </select>
+                            ${locationSelect}
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="startDate">
                             <input type="text" name="startDate" placeholder="Date début du cours" data-form-field="startDate" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" value="" id="startDate-form9-j" required>

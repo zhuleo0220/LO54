@@ -20,7 +20,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form">
-                <form action="/client/searchCourseSesssionServlet" method="POST" class="mbr-form form-with-styler mx-auto">
+                <form action="/CourseSession/search" method="POST" class="mbr-form form-with-styler mx-auto">
                     <div class="row">
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some problem!</div>
                     </div>
@@ -31,11 +31,7 @@
                         <div class="col-lg-4 col-md-12 col-sm-12 form-group" data-for="locationId">
                             <select id="locationId" name="locationId" class="form-control">
                                 <option value="">--Localisation de la session--</option>
-                                <%
-                                for(Location lo:fr.utbm.school.core.service.LocationService.getListLocation()){
-                                    out.println("<option value=\"" + lo.getId() + "\">" + lo.getCity() + "</option>");
-                                }
-                                %>
+                                ${locationSelect}
                             </select>
                         </div>
                         <div data-for="date" class="col-lg-4 col-md-12 col-sm-12 form-group">
