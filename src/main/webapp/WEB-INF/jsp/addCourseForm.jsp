@@ -19,7 +19,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form">
-                <form action="/client/addCourseServlet" method="POST" data-rcpha_sitekey="" data-rcpha_secretkey="" class="mbr-form form-with-styler mx-auto">
+                <form action="/Course/add" method="POST" data-rcpha_sitekey="" data-rcpha_secretkey="" class="mbr-form form-with-styler mx-auto">
                     <p class="mbr-text mbr-fonts-style align-center mb-4 display-7">
                         Entrer les informations ci-dessous pour ajouter le nouveau cours</p>
                     <div class="row">

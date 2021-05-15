@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class HomeController {
 
     @RequestMapping(value = "/Homepage", method = RequestMethod.GET)
-    public String HomePage() throws SQLException {
+    public String HomePage() {
 
         return "home";
     }

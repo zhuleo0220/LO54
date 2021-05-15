@@ -20,7 +20,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form">
-                <form action="/client/searchCourseServlet" method="POST" class="mbr-form form-with-styler mx-auto">
+                <form action="/Course/search" method="POST" class="mbr-form form-with-styler mx-auto">
                     <div class="row">
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some problem!</div>
                     </div>
@@ -31,7 +31,8 @@
                         <div class="col-lg-4 col-md-12 col-sm-12 form-group" data-for="keyword">
                             <input type="text" name="keyword" placeholder="Mot clé" data-form-field="keyword" class="form-control" value="" id="name-form9-b">
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Rechercher</button></div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 mbr-section-btn align-center">
+                            <button type="submit" class="btn btn-primary display-4">Rechercher</button></div>
                     </div>
                 </form>
             </div>

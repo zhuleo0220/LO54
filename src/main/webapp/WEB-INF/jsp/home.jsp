@@ -44,7 +44,7 @@
 
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver le cours que vous souhaitez depuis le catalogue des cours.</p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="listCourse.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="/Course/listCourse" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
                 </div>
             </div>
             <div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -57,7 +57,7 @@
 
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver un cours grâce à son intitulé.</p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="searchCourse.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="/Course/searchPage" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
                 </div>
             </div>
             <div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -70,7 +70,7 @@
 
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Trouver une session proche de chez-vous et quand vous le souhaitez.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="searchCourseSession.jsp" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="/CourseSession/searchPage" class="btn btn-primary item-btn display-7" target="_blank">Voir &gt;</a></div>
                 </div>
             </div>
         </div>

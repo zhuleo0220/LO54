@@ -45,6 +45,4 @@ public class CourseServiceImpl implements CourseService {
     public void updateCourse(Course course){
         entityCourseDao.update(course);
     }
-
-
 }

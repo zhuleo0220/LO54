@@ -45,9 +45,10 @@
                 </div>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="listCourse.jsp">Catalogue</a></li>
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="/Course/listCourse?keyword=">Catalogue</a></li>
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="/Location/addpage">Ajouter une ville</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="addCourseForm.jsp">Ajouter un cours</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="/Course/addpage">Ajouter un cours</a></li>
                     <%
                         Cookie cookie = null;
                         Cookie[] cookies = null;
@@ -62,7 +63,7 @@
                                 cookie = cookies[i];
                                 if(cookie.getName().equals("emailUser")){
                                     found = true;
-                                    out.println("<button class=\"button button2\" onclick=\"location.href='/client/userAccount.jsp?email=" + cookie.getValue() + "';\">Mon compte</button>");
+                                    out.println("<button class=\"button button2\" onclick=\"location.href='/Client/userAccount?email=" + cookie.getValue() + "';\">Mon compte</button>");
                                 }
                             }
                         }

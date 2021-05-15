@@ -1,0 +1,139 @@
+2021-05-14 10:00:38 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-14 10:00:40 INFO  EntityClientDao:48 - 1 clients found
+2021-05-14 10:03:55 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-14 10:03:56 INFO  EntityClientDao:48 - 1 clients found
+2021-05-14 15:17:57 INFO  EntityLocationDao:47 - Location : fr.utbm.school.core.entity.Location@49cd2924 requested to be saved
+2021-05-14 15:17:57 INFO  EntityLocationDao:51 - Location : fr.utbm.school.core.entity.Location@49cd2924 have been saved
+2021-05-14 15:29:32 INFO  EntityLocationDao:47 - Location : fr.utbm.school.core.entity.Location@3ab7ed06 requested to be saved
+2021-05-14 15:29:32 INFO  EntityLocationDao:51 - Location : fr.utbm.school.core.entity.Location@3ab7ed06 have been saved
+2021-05-14 15:29:44 INFO  EntityLocationDao:47 - Location : fr.utbm.school.core.entity.Location@6736c1f6 requested to be saved
+2021-05-14 15:29:44 INFO  EntityLocationDao:51 - Location : fr.utbm.school.core.entity.Location@6736c1f6 have been saved
+2021-05-15 08:33:43 INFO  EntityCourseDao:41 - Searching for course containing the word  in their title
+2021-05-15 08:34:19 INFO  EntityCourseDao:41 - Searching for course containing the word Java in their title
+2021-05-15 08:38:45 INFO  EntityCourseDao:41 - Searching for course containing the word Java in their title
+2021-05-15 08:39:07 INFO  EntityCourseDao:41 - Searching for course containing the word  in their title
+2021-05-15 08:59:15 INFO  EntityCourseDao:44 - Searching for course containing the word Jave in their title
+2021-05-15 09:03:36 INFO  EntityCourseDao:44 - Searching for course containing the word Jave in their title
+2021-05-15 09:07:23 INFO  EntityCourseDao:44 - Searching for course containing the word Jave in their title
+2021-05-15 09:28:55 INFO  EntityCourseDao:44 - Searching for course containing the word Jave in their title
+2021-05-15 09:42:25 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 09:42:27 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 09:43:02 INFO  EntityLocationDao:33 - Location with id=1 is requested
+2021-05-15 09:43:02 INFO  EntityCourseSessionDao:160 - Course session : fr.utbm.school.core.entity.CourseSession@37afc61a requested to be saved
+2021-05-15 09:43:03 INFO  EntityCourseSessionDao:174 - The course session : fr.utbm.school.core.entity.CourseSession@37afc61a have been saved
+2021-05-15 10:03:51 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-15 10:03:51 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-15 10:03:52 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=1 requested
+2021-05-15 10:03:52 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-15 10:03:52 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
+2021-05-15 10:03:52 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-15 10:03:52 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-15 10:03:52 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-15 10:24:27 INFO  EntityCourseSessionDao:70 - Course session search for giving parameter
+2021-05-15 10:24:28 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-15 10:24:28 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=1 requested
+2021-05-15 10:24:28 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-15 10:24:28 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
+2021-05-15 10:24:28 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-15 10:24:28 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-15 10:24:28 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-15 10:26:23 INFO  EntityClientDao:40 - Client with the email=tom.geartil@laposte.net requested
+2021-05-15 10:26:23 INFO  EntityClientDao:48 - 0 clients found
+2021-05-15 10:26:23 INFO  LoginController:58 - logging with user tom.geartil@laposte.net failed
+2021-05-15 10:26:24 INFO  EntityClientDao:40 - Client with the email=tom.geartil@laposte.net requested
+2021-05-15 10:26:24 INFO  EntityClientDao:48 - 0 clients found
+2021-05-15 10:26:24 INFO  LoginController:58 - logging with user tom.geartil@laposte.net failed
+2021-05-15 10:26:28 INFO  EntityClientDao:40 - Client with the email=tom.geartil@laposte.net requested
+2021-05-15 10:26:28 INFO  EntityClientDao:48 - 0 clients found
+2021-05-15 10:26:28 INFO  LoginController:58 - logging with user tom.geartil@laposte.net failed
+2021-05-15 10:35:25 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 10:35:26 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 10:35:27 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 10:36:19 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 10:36:19 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 10:36:19 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 10:58:57 INFO  EntityCourseSessionDao:43 - The course session with the id=1 requested
+2021-05-15 10:58:58 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-15 10:58:58 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=1 requested
+2021-05-15 10:58:58 INFO  EntityClientDao:74 - The client fr.utbm.school.core.entity.Client@2327fd47 requested to be saved
+2021-05-15 11:22:42 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:22:42 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:22:42 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 11:22:44 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:22:44 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:25:15 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:25:15 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:25:15 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 11:25:17 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:25:17 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:27:33 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:27:34 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:27:34 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 11:27:35 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:27:35 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:40:29 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 11:40:29 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 11:55:29 INFO  EntityCourseDao:44 - Searching for course containing the word Java in their title
+2021-05-15 12:13:21 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 12:13:22 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 12:13:57 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 12:13:57 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 12:15:23 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 12:15:23 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 12:22:35 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 12:22:36 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 12:22:45 INFO  EntityCourseSessionDao:70 - Course session search for giving parameter
+2021-05-15 13:44:35 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:44:36 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:44:36 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:44:39 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:44:39 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:44:39 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:45:01 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:45:08 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:45:08 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:45:08 INFO  LoginController:52 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:45:11 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:45:13 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:50:03 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:50:03 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:50:03 INFO  LoginController:53 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:50:16 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:50:16 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:50:22 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:50:27 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:50:27 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:50:27 INFO  LoginController:53 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:50:29 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:50:59 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:50:59 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:50:59 INFO  LoginController:53 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:56:30 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:56:30 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:56:30 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:56:37 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 13:57:28 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:57:29 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:57:29 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:59:07 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:59:08 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:59:08 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 13:59:18 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-15 13:59:18 INFO  EntityClientDao:48 - 1 clients found
+2021-05-15 13:59:18 INFO  LoginController:54 - logging with user Eric.dampiere978@gmail.com
+2021-05-15 14:25:19 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 14:25:26 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-15 14:25:30 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=1 requested
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-15 14:25:30 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-15 14:25:30 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-15 14:25:35 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-15 14:25:35 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-15 14:25:58 INFO  EntityCourseSessionDao:43 - The course session with the id=2 requested
+2021-05-15 14:25:58 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-15 14:25:58 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
+2021-05-15 14:25:58 INFO  EntityClientDao:74 - The client fr.utbm.school.core.entity.Client@68eb5157 requested to be saved
