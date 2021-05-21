@@ -12,16 +12,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface CourseService {
-    public Course searchCourseById(String idCourse);
+    Course searchCourseById(String idCourse);
 
-    public ArrayList<Course> getListCourse();
+    ArrayList<Course> getListCourse();
 
-    public ArrayList<Course> getCourseByKeyword(String keyword);
+    ArrayList<Course> getCourseByKeyword(String keyword);
 
-    public void saveCourse(Course course) throws SQLException;
+    Course saveCourse(Course course) throws SQLException;
 
-    public void updateCourse(Course course);
+    Course updateCourse(Course course);
+
+    ArrayList<String> getCourseKeyword();
 }

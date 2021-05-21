@@ -1,7 +1,7 @@
 <%--
     Document   : addCourseSession
     Created on : 30 avr. 2021, 19:13:25
-    Author     : Neil FARMER/Zhu RUIQING
+    Author     : Neil Farmer/Ruiqing Zhu
 --%>
 
 <%@page import="fr.utbm.school.core.entity.Location"%>

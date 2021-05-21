@@ -5,9 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="../WEB-INF/jsp/navBar.jsp" %>
+<%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <link rel="stylesheet" href="/static/transaction/tabs.css">
+    <title>Erreur</title>
+</head>
 <body>
 
 
@@ -37,7 +41,7 @@
                             if(err != null && err != ""){
                                 out.println("<p>" + err + "</p>");
                             }else{
-                                out.println("<p>Aucune solution indique pour le moment</p>");
+                                out.println("<p>Erreur inconnue</p>");
                             }
                         %>
                     </section>

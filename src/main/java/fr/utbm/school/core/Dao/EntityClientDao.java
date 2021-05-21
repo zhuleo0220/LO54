@@ -6,24 +6,29 @@
 package fr.utbm.school.core.Dao;
 
 import fr.utbm.school.core.entity.Client;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.core.CrudMethods;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface EntityClientDao {
 
 
-    public ArrayList<Client> searchClientByEmail(String email);
+    ArrayList<Client> searchClientByEmail(String email);
 
-    public Client getClientById(Long clientId);
+    Client getClientById(Long clientId);
 
-    public ArrayList<Client> getListClient();
+    ArrayList<Client> getListClient();
 
-    public ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId);
+    ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId);
 
-     public void save(Client client);
+    Client save(Client client);
 
-    public void update(Client client);
+    Client update(Client client);
+
+    Client delete(Client client);
 }

@@ -1,7 +1,7 @@
 <%--
     Document   : courseDescription
     Created on : 25 avr. 2021, 16:55:58
-    Author     : Neil FARMER/Zhu RUIQING
+    Author     : Neil Farmer/Ruiqing Zhu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

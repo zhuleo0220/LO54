@@ -1,7 +1,7 @@
 <%--
     Document   : home
     Created on : 28 avr. 2021, 17:28:48
-    Author     : Neil FARMER/Zhu RUIQING
+    Author     : Neil FARMER/Ruiqing Zhu
 --%>
 
 <%@page import="java.util.Arrays"%>
@@ -22,7 +22,7 @@
 
                 <p class="mbr-text mbr-fonts-style mbr-white display-7">
                     Projet de catalogue de matière d'une école, réalisé dans le cadre du projet de LO54</p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="listCourse.jsp">Voir le catalogue</a></div>
+                <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="/Course/listCourse">Voir le catalogue</a></div>
             </div>
         </div>
     </div>

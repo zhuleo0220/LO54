@@ -13,11 +13,11 @@ import java.util.ArrayList;
  * @author Neil FARMER
  */
 public interface LocationService {
-    public Location searchLocationById(Long idLocation);
+    Location searchLocationById(Long idLocation);
 
-    public ArrayList<Location> getListLocation();
+    ArrayList<Location> getListLocation();
 
-    public void saveLocation(Location location);
+    Location saveLocation(Location location);
 
-    public void updateLocation(Location location);
+    Location updateLocation(Location location);
 }

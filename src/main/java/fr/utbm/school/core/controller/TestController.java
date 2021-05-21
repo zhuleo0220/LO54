@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author : Neil Farmer/Ruiqing Zhu
+ */
 @Controller
 @RequestMapping("/Test")
 public class TestController {
@@ -47,6 +50,7 @@ public class TestController {
     public String JspTest(Model model) throws SQLException {
         return "home";
     }
+
     @RequestMapping(value = "/4", method = RequestMethod.GET)
     public String NavBarTest() throws SQLException {
         return "navBar";

@@ -10,12 +10,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <meta name="generator" content="Mobirise v5.3.5, mobirise.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
     <meta name="description" content="">
-    <title>Home</title>
+
     <link rel="stylesheet" href="/static/tether/tether.min.css">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.min.css">
@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="/static/usersession/userNavBar.css">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-    <link rel="preload" as="style" href="/static/theme/css/mbr-additional.css"><link rel="stylesheet" href="/static/theme/css/mbr-additional.css" type="text/css">
+    <link rel="preload" as="style" href="/static/theme/css/mbr-additional.css">
+    <link rel="stylesheet" href="/static/theme/css/mbr-additional.css" type="text/css">
 </head>
 <body>
 <section class="menu menu1 cid-svkdE2y6KA" once="menu" id="menu1-1">
@@ -83,7 +84,18 @@
             if(message != null && message != ""){
                 out.println("<div class=\"alert success\">");
                 out.println("<span class=\"closebtnalert\" onclick=\"this.parentElement.style.display='none';\">&times;</span>");
-                out.println("<strong>Succès!</strong> " + message);
+                out.println("<strong>Succes!</strong> " + message);
+                out.println("</div>");
+            }
+        %>
+
+        <%
+            String fail = request.getParameter("failure");
+
+            if(fail != null && fail != ""){
+                out.println("<div class=\"alert failure\">");
+                out.println("<span class=\"closebtnalert\" onclick=\"this.parentElement.style.display='none';\">&times;</span>");
+                out.println("<strong>Echec!</strong> " + fail);
                 out.println("</div>");
             }
         %>

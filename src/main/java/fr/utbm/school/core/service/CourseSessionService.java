@@ -11,22 +11,22 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface CourseSessionService {
-    public CourseSession searchCourseSessionById(Long idCourseSession);
+    CourseSession searchCourseSessionById(Long idCourseSession);
 
-    public ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse);
+    ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse);
 
-    public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId);
+    ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId);
 
-    public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode);
+    ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode);
 
-    public ArrayList<CourseSession> getListCourseSession();
+    ArrayList<CourseSession> getListCourseSession();
 
-    public int getPercentStudent(Long courseSessionId);
+    int getPercentStudent(Long courseSessionId);
 
-    public void saveCourseSession(CourseSession courseSession) throws CourseSessionException;
+    CourseSession saveCourseSession(CourseSession courseSession) throws CourseSessionException;
 
-    public void updateCourseSession(CourseSession courseSession);
+    CourseSession updateCourseSession(CourseSession courseSession);
 }

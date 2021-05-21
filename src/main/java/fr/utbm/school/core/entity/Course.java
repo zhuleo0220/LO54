@@ -17,7 +17,7 @@ import org.redisson.api.annotation.RId;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Entity
 @REntity
@@ -31,7 +31,7 @@ public class Course implements Serializable {
     private String code;
 
     @Basic(optional = false)
-    @Column(name = "TITLE")
+    @Column(name = "TITLE", length = 45)
     private String title;
 
     public Course() {

@@ -5,6 +5,9 @@
  */
 package fr.utbm.school.core.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.Basic;
@@ -14,14 +17,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Entity
 @Table(name = "LOCATION")
 public class Location implements Serializable {
+
+    @Getter
+    @Setter
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +36,11 @@ public class Location implements Serializable {
     @Column(name = "ID")
     private Long id;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "CITY")
+    @Column(name = "CITY", length = 45)
+    @Size(min = 1, max = 45)
     private String city;
 
     public Location() {
@@ -44,22 +54,5 @@ public class Location implements Serializable {
     public Location(String city) {
         this.city = city;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
 
 }

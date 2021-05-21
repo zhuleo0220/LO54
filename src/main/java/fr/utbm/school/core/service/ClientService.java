@@ -11,18 +11,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface ClientService {
-    public Client searchClientById(Long idClient);
+    Client searchClientById(Long idClient);
 
-    public ArrayList<Client> searchClientByEmail(String email);
+    ArrayList<Client> searchClientByEmail(String email);
 
-    public ArrayList<Client> getListClient();
+    ArrayList<Client> getListClient();
 
-    public ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId);
+    ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId);
 
-    public void saveClient(Client client) throws ClientException;
+    Client saveClient(Client client) throws ClientException;
 
-    public void updateClient(Client client);
+    Client updateClient(Client client);
 }

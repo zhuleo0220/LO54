@@ -14,24 +14,24 @@ import java.util.ArrayList;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface EntityCourseSessionDao {
 
-    public CourseSession getCourseSessionById(Long courseSessionId);
+    CourseSession getCourseSessionById(Long courseSessionId);
 
-    public ArrayList<CourseSession> getListCourseSession();
+    ArrayList<CourseSession> getListCourseSession();
 
-    public ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse);
+    ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse);
 
-    public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId);
+    ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId);
 
 
-    public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode);
+    ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode);
 
-    public int getPercentStudent(Long courseSessionId);
+    int getPercentStudent(Long courseSessionId);
 
-    public void save(CourseSession courseSession) throws CourseSessionException;
+    CourseSession save(CourseSession courseSession) throws CourseSessionException;
 
-    public void update(CourseSession courseSession);
+    CourseSession update(CourseSession courseSession);
 }

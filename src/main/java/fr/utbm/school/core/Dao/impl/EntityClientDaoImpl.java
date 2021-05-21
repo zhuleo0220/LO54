@@ -16,11 +16,11 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
-;
+
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Repository
 @Transactional
@@ -31,11 +31,21 @@ public class EntityClientDaoImpl implements EntityClientDao {
     @PersistenceContext
     private EntityManager entityManager ;
 
+    /**
+     * Method to get client by his id
+     * @param clientId
+     * @return
+     */
     public Client getClientById(Long clientId){
         logger.info("Client requested for the id=" + String.valueOf(clientId));
         return entityManager.find(Client.class, clientId);
     }
 
+    /**
+     * Method to get client by his id
+     * @param userEmail
+     * @return
+     */
     public ArrayList<Client> searchClientByEmail(String userEmail){
         logger.info("Client with the email=" + userEmail + " requested");
 
@@ -50,6 +60,10 @@ public class EntityClientDaoImpl implements EntityClientDao {
         return clientList;
     }
 
+    /**
+     * Method to get list of all client
+     * @return
+     */
     public ArrayList<Client> getListClient(){
         logger.info("List of all Client requested");
         ArrayList<Client> listClient = new ArrayList<Client>();
@@ -58,6 +72,11 @@ public class EntityClientDaoImpl implements EntityClientDao {
         return listClient;
     }
 
+    /**
+     * Method to get list of client registered to a course session
+     * @param courseSessionId
+     * @return
+     */
     public ArrayList<Client> getListClientRegisterCourseSession(Long courseSessionId){
 
         logger.info("List of Client registered to the course session with the id=" +
@@ -70,13 +89,43 @@ public class EntityClientDaoImpl implements EntityClientDao {
         return listClient;
     }
 
-     public void save(Client client) {
-         logger.info("The client " + client.toString() + " requested to be saved");
+    /**
+     * Method to save a client
+     * @param client
+     */
+     public Client save(Client client) {
+        logger.info("The client " + client.toString() + " requested to be saved");
+
+        assert client != null : "Null object can't be saved";
         entityManager.persist(client);
+
+        return client;
     }
 
-    public void update(Client client) {
+    /**
+     * Method to update a client
+     * @param client
+     */
+    public Client update(Client client) {
         logger.info("The client " + client.toString() + " requested to be updated");
+
+        assert client != null : "Null object can't be merged";
         entityManager.merge(client);
+
+        return client;
+    }
+
+    /**
+     * Method to delete a client
+     * @param client
+     * @return
+     */
+    public Client delete(Client client){
+        logger.info("The client " + client.toString() + " requested to be deleted");
+
+        assert client != null : "Null object can't be deleted";
+        entityManager.remove(client);
+
+        return client;
     }
 }
