@@ -26,9 +26,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author : Neil Farmer/Ruiqing Zhu
+ */
 @Controller
 @RequestMapping("/Login")
 public class LoginController {
+
     @Autowired
     ClientService clientService;
 
@@ -43,7 +47,8 @@ public class LoginController {
 
 
     @RequestMapping(value = "/doLogin.do", method = RequestMethod.POST)
-    public String doLogin(@RequestParam("email") String email, HttpSession session, HttpServletResponse response)  {
+    public String doLogin(@RequestParam("email") String email, HttpSession session, HttpServletResponse response) throws IOException {
+        logger.trace("Controller to login have been called");
 
         if (!clientService.searchClientByEmail(email).isEmpty()){
             session.setAttribute("emailUser",email);
@@ -52,22 +57,31 @@ public class LoginController {
             c.setPath("/");
             response.addCookie(c);
             logger.info("logging with user "+ email);
+
+            response.sendRedirect("/Home/Homepage?success=Vous etes connecte");
             return "home";
 
         }
+
         logger.info("logging with user "+ email+" failed");
 
+        response.sendRedirect("/Home/Homepage?failure=Compte inconnu");
         return "home";
 
     }
 
     @RequestMapping(value = "/doLogout.do", method = RequestMethod.POST)
     public String doLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        logger.trace("Controller to logout have been called");
+
         Cookie cookie = new Cookie("emailUser", null);
+        cookie.setDomain("localhost");
+        cookie.setPath("/");
         cookie.setMaxAge(0);
 
         //add cookie to response
         response.addCookie(cookie);
+
         response.sendRedirect("/Home/Homepage?success=Vous avez ete deconnecte");
         return "home";
     }

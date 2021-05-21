@@ -12,22 +12,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Transactional
 public interface EntityCourseDao {
 
 
-    public Course getCourseById(String courseId);
+    Course getCourseById(String courseId);
 
-    public ArrayList<Course> getCourseByKeyword(String keyword);
+    ArrayList<Course> getCourseByKeyword(String keyword);
 
-    public ArrayList<Course> getListCourse();
+    ArrayList<Course> getListCourse();
 
-    public ArrayList<Course> getDBListCourse();
+    Course save(Course course) throws SQLException ;
 
-    public void save(Course course) throws SQLException ;
+    Course update(Course course);
 
-    public void update(Course course);
+    Course delete(Course course);
+
+    ArrayList<String> getCourseKeyword();
 
 }

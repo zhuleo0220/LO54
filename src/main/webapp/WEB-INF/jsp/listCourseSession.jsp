@@ -1,7 +1,7 @@
 <%--
     Document   : listCourseSession
     Created on : 26 avr. 2021, 09:01:51
-    Author     : Neil FARMER/Zhu RUIQING
+    Author     : Neil Farmer/Ruiqing Zhu
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="navBar.jsp" %>

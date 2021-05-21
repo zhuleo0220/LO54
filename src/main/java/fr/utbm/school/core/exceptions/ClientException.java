@@ -7,7 +7,7 @@ package fr.utbm.school.core.exceptions;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public class ClientException extends Exception  {
     public ClientException(String message){

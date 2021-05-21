@@ -137,3 +137,397 @@
 2021-05-15 14:25:58 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
 2021-05-15 14:25:58 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
 2021-05-15 14:25:58 INFO  EntityClientDao:74 - The client fr.utbm.school.core.entity.Client@68eb5157 requested to be saved
+2021-05-20 08:46:46 INFO  EntityCourseDao:44 - Searching for course containing the word null in their title
+2021-05-20 08:46:46 INFO  EntityCourseDao:66 - All course store in JavaDB using Hibernate requested
+2021-05-20 08:47:01 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 08:47:01 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 08:47:01 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-20 08:48:21 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 08:48:22 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 08:48:28 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-20 08:50:32 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-20 08:50:38 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=1 requested
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-20 08:50:38 INFO  EntityClientDao:63 - List of Client registered to the course session with the id=2 requested
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-20 08:50:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-20 08:51:02 INFO  EntityLocationDao:38 - All location have been requested
+2021-05-20 08:51:02 INFO  EntityLocationDao:42 - 18 Location(s) returned
+2021-05-20 09:14:01 INFO  EntityCourseSessionDao:43 - The course session with the id=103 requested
+2021-05-20 09:14:01 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-20 09:14:01 INFO  EntityClientDao:74 - The client fr.utbm.school.core.entity.Client@3a8d6067 requested to be saved
+2021-05-20 09:34:29 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:34:29 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:34:40 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:34:41 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:44:31 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:44:32 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:47:03 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:47:03 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:53:00 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:53:01 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:53:01 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-20 09:53:04 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:53:05 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:53:05 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-20 09:53:06 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:53:06 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:53:15 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:53:15 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 09:53:15 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-20 09:53:18 INFO  EntityCourseDao:44 - Searching for course containing the word  in their title
+2021-05-20 09:53:24 INFO  EntityClientDao:40 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-20 09:53:24 INFO  EntityClientDao:48 - 1 clients found
+2021-05-20 10:45:34 INFO  EntityCourseDao:43 - Searching for course containing the word null in their title
+2021-05-20 10:45:35 INFO  EntityCourseDao:65 - All course store in JavaDB using Hibernate requested
+2021-05-20 20:36:44 INFO  EntityLocationDao:52 - Location : fr.utbm.school.core.entity.Location@34c30268 requested to be saved
+2021-05-20 20:36:45 INFO  EntityLocationDao:56 - Location : fr.utbm.school.core.entity.Location@34c30268 have been saved
+2021-05-21 08:42:44 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 08:42:45 INFO  EntityCourseDao:83 - All course store in JavaDB using Hibernate requested
+2021-05-21 08:56:52 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 08:56:52 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 08:58:54 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 08:58:54 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:06:54 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:06:54 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:07:10 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:07:10 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:07:21 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:07:21 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:07:21 INFO  LoginController:63 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:20:39 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:20:39 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:20:39 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:22:21 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:22:21 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:22:21 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:23:35 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:23:35 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:23:35 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:23:45 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:23:46 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:23:46 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 10:25:02 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:25:02 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:26:08 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:26:08 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:26:08 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 10:28:27 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:28:27 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:28:34 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:28:34 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:28:38 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:28:39 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:28:46 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:28:46 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:28:48 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG41 requested
+2021-05-21 10:29:09 INFO  EntityLocationDao:52 - Location : fr.utbm.school.core.entity.Location@40715356 requested to be saved
+2021-05-21 10:29:09 INFO  EntityLocationDao:56 - Location : fr.utbm.school.core.entity.Location@40715356 have been saved
+2021-05-21 10:31:29 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:31:29 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:31:29 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:33:25 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:33:25 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:33:35 INFO  EntityClientDao:50 - Client with the email=yohannus.netflix@gmail.com requested
+2021-05-21 10:33:35 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:33:35 INFO  LoginController:66 - logging with user yohannus.netflix@gmail.com failed
+2021-05-21 10:33:41 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:33:42 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:33:42 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 10:33:45 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:33:45 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:42:03 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:42:03 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:42:09 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG41 requested
+2021-05-21 10:45:48 INFO  EntityLocationDao:52 - Location : fr.utbm.school.core.entity.Location@3006d53d requested to be saved
+2021-05-21 10:45:49 INFO  EntityLocationDao:56 - Location : fr.utbm.school.core.entity.Location@3006d53d have been saved
+2021-05-21 10:46:27 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 10:46:27 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 10:46:36 INFO  ClientController:183 - The course sessions returned must start the 2021-05-26 00:00:00.0
+2021-05-21 10:46:36 INFO  ClientController:196 - The course sessions returned must be at the city with the id 231
+2021-05-21 10:46:36 INFO  EntityCourseSessionDao:70 - Course session search for giving parameter
+2021-05-21 10:47:02 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 10:47:02 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 10:47:02 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 10:47:07 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:47:08 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:47:08 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 10:47:09 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 10:47:09 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 10:47:24 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 10:47:24 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 10:47:51 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 10:47:51 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 10:48:21 INFO  EntityLocationDao:34 - Location with id=367 is requested
+2021-05-21 10:48:22 INFO  EntityCourseSessionDao:160 - Course session : fr.utbm.school.core.entity.CourseSession@52080965 requested to be saved
+2021-05-21 10:48:22 INFO  EntityCourseSessionDao:174 - The course session : fr.utbm.school.core.entity.CourseSession@52080965 have been saved
+2021-05-21 10:54:12 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 10:54:12 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 10:54:17 INFO  EntityCourseSessionDao:57 - The course session of course with the id=MT42 requested
+2021-05-21 10:54:19 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 10:54:19 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 10:54:42 INFO  EntityCourseDao:53 - Searching for course containing the word Java in their title
+2021-05-21 11:00:36 INFO  EntityLocationDao:34 - Location with id=1 is requested
+2021-05-21 11:04:49 INFO  EntityLocationDao:34 - Location with id=1 is requested
+2021-05-21 11:05:19 INFO  EntityLocationDao:34 - Location with id=1 is requested
+2021-05-21 11:05:19 INFO  EntityCourseSessionDao:160 - Course session : fr.utbm.school.core.entity.CourseSession@6765fdba requested to be saved
+2021-05-21 11:05:19 ERROR EntityCourseSessionDao:163 - The start date is after the end date of the session
+2021-05-21 11:05:19 ERROR ClientController:111 - An CourseSession exception happen while saving the course session
+2021-05-21 11:07:53 INFO  EntityLocationDao:34 - Location with id=1 is requested
+2021-05-21 11:07:53 INFO  EntityCourseSessionDao:160 - Course session : fr.utbm.school.core.entity.CourseSession@20d4352d requested to be saved
+2021-05-21 11:07:53 ERROR EntityCourseSessionDao:163 - The start date is after the end date of the session
+2021-05-21 11:07:53 ERROR ClientController:111 - An CourseSession exception happen while saving the course session
+2021-05-21 11:35:15 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 11:35:15 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 11:35:18 INFO  EntityCourseSessionDao:70 - Course session search for giving parameter
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 11:35:19 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-21 11:35:19 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=2 requested
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 11:35:19 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=104 is requested
+2021-05-21 11:35:45 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 11:35:45 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 11:35:45 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 11:35:53 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 11:35:53 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 11:35:53 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 11:35:57 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 11:35:57 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 11:36:01 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 11:36:07 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 11:36:07 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 11:36:12 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG43 requested
+2021-05-21 11:36:36 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG41 requested
+2021-05-21 11:36:36 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=104 is requested
+2021-05-21 11:36:41 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG43 requested
+2021-05-21 11:36:45 INFO  EntityCourseSessionDao:57 - The course session of course with the id=IN54 requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 11:36:54 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-21 11:36:54 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=2 requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-21 11:36:54 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 11:38:33 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 11:38:35 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO41 requested
+2021-05-21 11:38:39 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG41 requested
+2021-05-21 11:38:39 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=104 is requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 11:38:49 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-21 11:38:49 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=2 requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-21 11:38:49 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 11:43:32 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 11:48:45 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 11:48:49 INFO  EntityCourseSessionDao:57 - The course session of course with the id=TT00 requested
+2021-05-21 12:01:03 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 14:17:43 INFO  EntityCourseSessionDao:57 - The course session of course with the id=AG41 requested
+2021-05-21 14:17:43 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=104 is requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 14:17:50 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-21 14:17:50 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=2 requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-21 14:17:50 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 14:17:59 INFO  EntityCourseSessionDao:43 - The course session with the id=103 requested
+2021-05-21 14:17:59 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 14:17:59 INFO  EntityClientDao:97 - The client fr.utbm.school.core.entity.Client@283d1281 requested to be saved
+2021-05-21 14:42:12 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 14:42:13 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 14:42:24 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 14:42:24 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 14:42:28 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 17:57:33 TRACE CourseController:43 - Controller to add a course have been called
+2021-05-21 17:57:33 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 18:02:38 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:02:45 INFO  RedisCourseDaoImpl:86 - The course fr.utbm.school.core.entity.Course@7 have been saved in redis
+2021-05-21 18:12:00 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:12:05 ERROR RedisCourseDaoImpl:88 - While saving the course fr.utbm.school.core.entity.Course@7, an illegal argument exception occured
+2021-05-21 18:12:05 ERROR RedisCourseDaoImpl:89 - The course fr.utbm.school.core.entity.Course@7 has not been saved in Redis
+2021-05-21 18:16:04 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:16:09 ERROR RedisCourseDaoImpl:89 - While saving the course fr.utbm.school.core.entity.Course@7, an illegal argument exception occured
+2021-05-21 18:16:09 ERROR RedisCourseDaoImpl:90 - The course fr.utbm.school.core.entity.Course@7 has not been saved in Redis
+2021-05-21 18:17:36 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:17:40 INFO  RedisCourseDaoImpl:86 - The course fr.utbm.school.core.entity.Course@7 have been saved in redis
+2021-05-21 18:19:13 INFO  RedisCourseDaoImpl:22 - A course with the id=TT37 have been requested in Redis
+2021-05-21 18:19:18 INFO  RedisCourseDaoImpl:32 - The course fr.utbm.school.core.entity.Course@7 have been find in Redis to solve the  course's request for the id=TT37
+2021-05-21 18:37:21 INFO  RedisCourseDaoImpl:22 - A course with the id=TT37 have been requested in Redis
+2021-05-21 18:37:27 INFO  RedisCourseDaoImpl:32 - The course fr.utbm.school.core.entity.Course@7 have been find in Redis to solve the  course's request for the id=TT37
+2021-05-21 18:38:41 TRACE CourseController:43 - Controller to add a course have been called
+2021-05-21 18:38:41 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 18:40:21 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:40:26 INFO  RedisCourseDaoImpl:86 - The course fr.utbm.school.core.entity.Course@7 have been saved in redis
+2021-05-21 18:43:18 INFO  RedisCourseDaoImpl:22 - A course with the id=TT39 have been requested in Redis
+2021-05-21 18:43:24 INFO  RedisCourseDaoImpl:32 - The course fr.utbm.school.core.entity.Course@7 have been find in Redis to solve the  course's request for the id=TT39
+2021-05-21 18:45:22 TRACE CourseController:43 - Controller to add a course have been called
+2021-05-21 18:45:23 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 18:48:48 TRACE CourseController:43 - Controller to add a course have been called
+2021-05-21 18:48:49 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 18:51:50 TRACE CourseController:43 - Controller to add a course have been called
+2021-05-21 18:51:50 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 18:51:50 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 18:51:53 INFO  RedisCourseDaoImpl:86 - The course fr.utbm.school.core.entity.Course@7 have been saved in redis
+2021-05-21 18:51:54 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:42:34 TRACE CourseController:239 - Controller to load the page to search for a course have been called
+2021-05-21 19:42:41 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 19:42:41 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:42:41 INFO  EntityCourseDao:53 - Searching for course containing the word Jave in their title
+2021-05-21 19:42:42 INFO  CourseController:87 - No course found with the keyword
+2021-05-21 19:42:42 INFO  EntityCourseDao:123 - A list of all word used in course title of course stored in Redis
+2021-05-21 19:42:42 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 19:42:42 INFO  EntityCourseDao:138 - A list of 19 words used in course's title have been returned
+2021-05-21 19:42:42 TRACE Levenshtein:19 - Calcul Levenshtein distance for the word Java and Jave
+2021-05-21 19:42:42 TRACE Levenshtein:40 - The Levenshtein distance for the word Java and Jave is 1
+2021-05-21 19:42:42 INFO  Levenshtein:58 - The word Java have been found with the stopping evaluation (1)
+2021-05-21 19:43:16 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 19:43:16 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:43:16 INFO  EntityCourseDao:53 - Searching for course containing the word Test in their title
+2021-05-21 19:43:24 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 19:43:24 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:43:24 INFO  EntityCourseDao:53 - Searching for course containing the word Java in their title
+2021-05-21 19:43:30 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 19:43:31 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:43:31 INFO  EntityCourseDao:53 - Searching for course containing the word Java in their title
+2021-05-21 19:44:46 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 19:44:46 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:44:46 INFO  EntityCourseDao:53 - Searching for course containing the word Jave in their title
+2021-05-21 19:44:47 INFO  CourseController:87 - No course found with the keyword
+2021-05-21 19:44:47 INFO  EntityCourseDao:123 - A list of all word used in course title of course stored in Redis
+2021-05-21 19:44:47 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 19:44:47 INFO  EntityCourseDao:138 - A list of 19 words used in course's title have been returned
+2021-05-21 19:44:47 TRACE Levenshtein:19 - Calcul Levenshtein distance for the word Java and Jave
+2021-05-21 19:44:47 TRACE Levenshtein:40 - The Levenshtein distance for the word Java and Jave is 1
+2021-05-21 19:44:47 INFO  Levenshtein:58 - The word Java have been found with the stopping evaluation (1)
+2021-05-21 19:44:51 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:44:51 INFO  EntityCourseDao:53 - Searching for course containing the word Java in their title
+2021-05-21 19:49:03 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word Paris and Lion
+2021-05-21 19:49:03 TRACE Levenshtein:43 - The Levenshtein distance for the word Paris and Lion is 5
+2021-05-21 19:49:03 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word Lyon and Lion
+2021-05-21 19:49:03 TRACE Levenshtein:43 - The Levenshtein distance for the word Lyon and Lion is 1
+2021-05-21 19:49:03 INFO  Levenshtein:61 - The word Lyon have been found with the stopping evaluation (1)
+2021-05-21 19:49:03 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word NICHE and CHIENS
+2021-05-21 19:49:03 TRACE Levenshtein:43 - The Levenshtein distance for the word NICHE and CHIENS is 5
+2021-05-21 19:51:34 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word Paris and Lion
+2021-05-21 19:51:34 TRACE Levenshtein:43 - The Levenshtein distance for the word Paris and Lion is 5
+2021-05-21 19:51:34 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word Lyon and Lion
+2021-05-21 19:51:34 TRACE Levenshtein:43 - The Levenshtein distance for the word Lyon and Lion is 1
+2021-05-21 19:51:34 INFO  Levenshtein:61 - The word Lyon have been found with the stopping evaluation (1)
+2021-05-21 19:51:34 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word NICHE and CHIENS
+2021-05-21 19:51:34 TRACE Levenshtein:43 - The Levenshtein distance for the word NICHE and CHIENS is 5
+2021-05-21 19:52:40 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:52:45 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:52:45 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 19:52:50 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:52:50 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 19:52:50 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 19:52:55 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:52:55 INFO  EntityCourseDao:53 - Searching for course containing the word null in their title
+2021-05-21 19:52:55 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 19:53:07 TRACE LoginController:51 - Controller to login have been called
+2021-05-21 19:53:07 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 19:53:07 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 19:53:07 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 19:53:07 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:53:12 TRACE LoginController:51 - Controller to login have been called
+2021-05-21 19:53:12 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 19:53:12 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 19:53:12 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 19:53:12 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:53:16 TRACE LoginController:51 - Controller to login have been called
+2021-05-21 19:53:16 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 19:53:16 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 19:53:16 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 19:53:16 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:53:21 TRACE ClientController:150 - Controller to get a client have been called
+2021-05-21 19:53:21 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 19:53:21 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 19:53:26 TRACE LoginController:75 - Controller to logout have been called
+2021-05-21 19:53:26 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:53:30 TRACE LocationController:49 - Controller to load the add location page have been called
+2021-05-21 19:59:01 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:59:01 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 19:59:09 TRACE CourseController:144 - Controller to get a description of a course have been called
+2021-05-21 19:59:09 INFO  EntityCourseSessionDao:57 - The course session of course with the id=TT32 requested
+2021-05-21 19:59:13 TRACE ClientController:143 - Controller to load the page to save a course session have been called
+2021-05-21 19:59:13 INFO  EntityLocationDao:40 - All location have been requested
+2021-05-21 19:59:13 INFO  EntityLocationDao:46 - 21 Location(s) returned
+2021-05-21 19:59:34 TRACE ClientController:56 - Controller to save a course session have been called
+2021-05-21 19:59:34 TRACE ClientController:73 - No max student for the new course session
+2021-05-21 19:59:34 INFO  EntityLocationDao:34 - Location with id=248 is requested
+2021-05-21 19:59:34 INFO  EntityCourseSessionDao:160 - Course session : fr.utbm.school.core.entity.CourseSession@16eb7cf6 requested to be saved
+2021-05-21 19:59:35 INFO  EntityCourseSessionDao:176 - The course session : fr.utbm.school.core.entity.CourseSession@16eb7cf6 have been saved
+2021-05-21 19:59:35 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 19:59:49 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 19:59:49 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 19:59:51 TRACE LocationController:49 - Controller to load the add location page have been called
+2021-05-21 19:59:56 TRACE LocationController:38 - Controller to save a location have been called
+2021-05-21 19:59:56 INFO  EntityLocationDao:52 - Location : fr.utbm.school.core.entity.Location@74c849b1 requested to be saved
+2021-05-21 19:59:56 INFO  EntityLocationDao:57 - Location : fr.utbm.school.core.entity.Location@74c849b1 have been saved
+2021-05-21 19:59:57 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:13:13 TRACE LoginController:51 - Controller to login have been called
+2021-05-21 20:13:14 INFO  EntityClientDao:50 - Client with the email=tom.geartil@laposte.net requested
+2021-05-21 20:13:14 INFO  EntityClientDao:58 - 0 clients found
+2021-05-21 20:13:14 INFO  LoginController:66 - logging with user tom.geartil@laposte.net failed
+2021-05-21 20:13:16 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:13:21 TRACE LoginController:51 - Controller to login have been called
+2021-05-21 20:13:21 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 20:13:21 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 20:13:21 INFO  LoginController:59 - logging with user Eric.dampiere978@gmail.com
+2021-05-21 20:13:21 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:13:25 TRACE ClientController:150 - Controller to get a client have been called
+2021-05-21 20:13:25 INFO  EntityClientDao:50 - Client with the email=Eric.dampiere978@gmail.com requested
+2021-05-21 20:13:25 INFO  EntityClientDao:58 - 1 clients found
+2021-05-21 20:13:27 TRACE LoginController:75 - Controller to logout have been called
+2021-05-21 20:13:27 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:13:31 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 20:13:31 INFO  EntityCourseDao:53 - Searching for course containing the word  in their title
+2021-05-21 20:13:37 TRACE CourseController:144 - Controller to get a description of a course have been called
+2021-05-21 20:13:37 INFO  EntityCourseSessionDao:57 - The course session of course with the id=LO54 requested
+2021-05-21 20:13:37 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 20:13:37 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 20:13:37 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=2 is requested
+2021-05-21 20:13:37 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=2 requested
+2021-05-21 20:13:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=101 is requested
+2021-05-21 20:13:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=102 is requested
+2021-05-21 20:13:38 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=103 is requested
+2021-05-21 20:13:50 TRACE ClientController:51 - Controller to load the register page have been called
+2021-05-21 20:13:59 TRACE ClientController:72 - Controller to save a client have been called
+2021-05-21 20:13:59 INFO  EntityCourseSessionDao:43 - The course session with the id=1 requested
+2021-05-21 20:13:59 INFO  EntityCourseSessionDao:139 - The percent of course session filled for id=1 is requested
+2021-05-21 20:13:59 INFO  EntityClientDao:82 - List of Client registered to the course session with the id=1 requested
+2021-05-21 20:13:59 INFO  EntityClientDao:97 - The client Client{id=null, lastName='geartil', firstName='tom', address='6 boulevard anatole france', phone='0662356674', email='tom.geartil@laposte.net', courseSession=fr.utbm.school.core.entity.CourseSession@3a0fab3c} requested to be saved
+2021-05-21 20:14:00 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:14:03 TRACE CourseController:67 - Controller to load the page to add a course have been called
+2021-05-21 20:14:16 TRACE CourseController:45 - Controller to add a course have been called
+2021-05-21 20:14:16 TRACE EntityCourseDao:86 - The course : fr.utbm.school.core.entity.Course@7 requested to be saved
+2021-05-21 20:14:16 INFO  RedisCourseDaoImpl:77 - The course fr.utbm.school.core.entity.Course@7 will be saved in redis
+2021-05-21 20:14:23 INFO  RedisCourseDaoImpl:86 - The course fr.utbm.school.core.entity.Course@7 have been saved in redis
+2021-05-21 20:14:25 TRACE HomeController:22 - Controller to load the home page have been called
+2021-05-21 20:14:35 TRACE CourseController:239 - Controller to load the page to search for a course have been called
+2021-05-21 20:14:42 TRACE CourseController:226 - Controller to search a course have been called
+2021-05-21 20:14:42 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 20:14:42 INFO  EntityCourseDao:53 - Searching for course containing the word Jave in their title
+2021-05-21 20:14:42 INFO  CourseController:87 - No course found with the keyword
+2021-05-21 20:14:42 INFO  EntityCourseDao:123 - A list of all word used in course title of course stored in Redis
+2021-05-21 20:14:42 INFO  EntityCourseDao:73 - All course store in JavaDB using Hibernate requested
+2021-05-21 20:14:42 INFO  EntityCourseDao:138 - A list of 19 words used in course's title have been returned
+2021-05-21 20:14:42 TRACE Levenshtein:22 - Calcul Levenshtein distance for the word Java and Jave
+2021-05-21 20:14:42 TRACE Levenshtein:43 - The Levenshtein distance for the word Java and Jave is 1
+2021-05-21 20:14:42 INFO  Levenshtein:61 - The word Java have been found with the stopping evaluation (1)
+2021-05-21 20:14:46 TRACE CourseController:80 - Controller to get a list of course have been called
+2021-05-21 20:14:46 INFO  EntityCourseDao:53 - Searching for course containing the word Java in their title
+2021-05-21 20:15:11 TRACE CourseController:67 - Controller to load the page to add a course have been called
+2021-05-21 20:15:15 TRACE LocationController:49 - Controller to load the add location page have been called
+2021-05-21 20:15:22 TRACE HomeController:22 - Controller to load the home page have been called

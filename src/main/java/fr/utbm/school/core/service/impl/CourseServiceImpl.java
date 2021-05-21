@@ -9,6 +9,8 @@ import fr.utbm.school.core.entity.Course;
 import fr.utbm.school.core.Dao.EntityCourseDao;
 import fr.utbm.school.core.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -25,11 +27,18 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     private EntityCourseDao entityCourseDao;
 
+    private final RedisCourseServiceImpl redisCourseService;
+
+    public CourseServiceImpl() {
+        redisCourseService = new RedisCourseServiceImpl();
+    }
+
+    @Cacheable(cacheNames = "courseCache", key = "#idCourse")
     public Course searchCourseById(String idCourse){
         return entityCourseDao.getCourseById(idCourse);
     }
 
-    @Cacheable(cacheNames = "Course_List", key = "1")
+    @Cacheable(cacheNames = "courseCache")
     public ArrayList<Course> getListCourse(){
         return entityCourseDao.getListCourse();
     }
@@ -38,11 +47,22 @@ public class CourseServiceImpl implements CourseService {
         return entityCourseDao.getCourseByKeyword(keyword);
     }
 
-    public void saveCourse(Course course) throws SQLException{
+    @CachePut(value = "courseCache", key = "#course.code")
+    public Course saveCourse(Course course) throws SQLException{
         entityCourseDao.save(course);
+        this.redisCourseService.save(course);
+        return course;
     }
 
-    public void updateCourse(Course course){
+    @CacheEvict(value = "courseCache", allEntries = true)
+    public Course updateCourse(Course course){
         entityCourseDao.update(course);
+        this.redisCourseService.update(course);
+        return course;
     }
+
+    public ArrayList<String> getCourseKeyword(){
+        return entityCourseDao.getCourseKeyword();
+    }
+
 }

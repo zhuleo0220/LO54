@@ -7,7 +7,7 @@ package fr.utbm.school.core.exceptions;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public class CourseSessionException extends Exception {
     public CourseSessionException(String message){

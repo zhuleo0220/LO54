@@ -10,6 +10,9 @@ import fr.utbm.school.core.exceptions.CourseSessionException;
 import fr.utbm.school.core.Dao.EntityCourseSessionDao;
 import fr.utbm.school.core.service.CourseSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Service
 public class CourseSessionServiceImpl implements CourseSessionService {
@@ -25,6 +28,7 @@ public class CourseSessionServiceImpl implements CourseSessionService {
     @Autowired
     private EntityCourseSessionDao entityCourseSessionDao;
 
+    @Cacheable(cacheNames = "courseSessionCache", key = "#idCourseSession")
     public CourseSession searchCourseSessionById(Long idCourseSession){
         return entityCourseSessionDao.getCourseSessionById(idCourseSession);
     }
@@ -41,6 +45,7 @@ public class CourseSessionServiceImpl implements CourseSessionService {
         return entityCourseSessionDao.searchCourseSessionByParameter(date, locationId, courseCode);
     }
 
+    @Cacheable(cacheNames = "courseSessionCache")
     public ArrayList<CourseSession> getListCourseSession(){
         return entityCourseSessionDao.getListCourseSession();
     }
@@ -49,11 +54,13 @@ public class CourseSessionServiceImpl implements CourseSessionService {
         return entityCourseSessionDao.getPercentStudent(courseSessionId);
     }
 
-    public void saveCourseSession(CourseSession courseSession) throws CourseSessionException{
-        entityCourseSessionDao.save(courseSession);
+    @CachePut(value = "courseSessionCache", key = "#courseSession.id")
+    public CourseSession saveCourseSession(CourseSession courseSession) throws CourseSessionException{
+        return entityCourseSessionDao.save(courseSession);
     }
 
-    public void updateCourseSession(CourseSession courseSession){
-        entityCourseSessionDao.update(courseSession);
+    @CacheEvict(value = "courseSessionCache", allEntries = true)
+    public CourseSession updateCourseSession(CourseSession courseSession){
+        return entityCourseSessionDao.update(courseSession);
     }
 }

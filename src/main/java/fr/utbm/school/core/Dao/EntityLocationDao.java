@@ -6,19 +6,21 @@
 package fr.utbm.school.core.Dao;
 
 import fr.utbm.school.core.entity.Location;
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface EntityLocationDao {
 
-    public Location getLocationById(Long locationId);
+    Location getLocationById(Long locationId);
 
-    public ArrayList<Location> getListLocation();
+    ArrayList<Location> getListLocation();
 
-    public void save(Location location) ;
+    Location save(Location location) ;
 
-    public void update(Location location) ;
+    Location update(Location location) ;
 }

@@ -5,6 +5,9 @@
  */
 package fr.utbm.school.core.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,41 +19,58 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
 /**
  *
- * @author Neil FARMER
+ * @author Neil FARMER/Ruiqing Zhu
  */
 @Entity
 @Table(name = "CLIENT")
 public class Client implements Serializable{
 
-
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ID")
     private Long id;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "LASTNAME")
+    @Column(name = "LASTNAME", length = 45)
     private String lastName;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRSTNAME", length = 45)
     private String firstName;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "ADDRESS")
+    @Column(name = "ADDRESS", length = 128)
     private String address;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "PHONE")
+    @Column(name = "PHONE", length = 12)
+    @Size(min=7, max=12)
     private String phone;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", length = 254)
+    @Size(min=3, max=254)
     private String email;
 
+    @Getter
+    @Setter
     @JoinColumn(name = "Course_SESSION_ID")
     @OneToOne(fetch = FetchType.EAGER)
     private CourseSession courseSession;
@@ -83,60 +103,36 @@ public class Client implements Serializable{
         this.courseSession = courseSession;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public CourseSession getCourseSession() {
-        return courseSession;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setLastName(String lastName) {
+    /**
+     * Constructor
+     *
+     * @param lastName
+     * @param firstName
+     * @param address
+     * @param phone
+     * @param email
+     * @param courseSession
+     */
+    public Client(String lastName, String firstName, String address,
+                  String phone, String email, CourseSession courseSession) {
         this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public void setAddress(String address) {
         this.address = address;
-    }
-
-    public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setCourseSession(CourseSession courseSession) {
         this.courseSession = courseSession;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", courseSession=" + courseSession +
+                '}';
+    }
 }

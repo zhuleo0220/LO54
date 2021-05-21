@@ -11,6 +11,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
+/**
+ * @author Neil Farmer / Ruiquing Zhu
+ */
 public class MailSender {
     // Sender's email ID needs to be mentioned
     String sender = "LO54.projetutbm@gmail.com";
@@ -40,7 +43,7 @@ public class MailSender {
      * @param header header of the email
      * @param body body of the email
      */
-    public void sendMail(String receiver, String header, String body){
+    public boolean sendMail(String receiver, String header, String body){
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -72,6 +75,9 @@ public class MailSender {
 
         } catch (MessagingException mex) {
             mex.printStackTrace();
+            return false;
         }
+
+        return true;
     }
 }

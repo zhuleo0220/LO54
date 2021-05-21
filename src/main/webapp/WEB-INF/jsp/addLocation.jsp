@@ -1,7 +1,7 @@
 <%--
     Document   : addLocation
     Created on : 7 mai 2021, 20:55:09
-    Author     : neil
+    Author     : Neil Farmer/Ruiqing Zhu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

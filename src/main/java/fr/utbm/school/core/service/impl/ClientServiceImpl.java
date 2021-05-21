@@ -12,6 +12,9 @@ import fr.utbm.school.core.service.ClientService;
 import fr.utbm.school.core.service.CourseSessionService;
 import fr.utbm.school.core.tools.MailSender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -30,15 +33,16 @@ public class ClientServiceImpl implements ClientService {
     @Autowired
     private CourseSessionService courseSessionService;
 
+    @Cacheable(cacheNames = "clientCache", key = "#idClient")
     public Client searchClientById(Long idClient){
         return entityClientDao.getClientById(idClient);
     }
-
 
     public ArrayList<Client> searchClientByEmail(String email) {
         return entityClientDao.searchClientByEmail(email);
     }
 
+    @Cacheable(cacheNames = "clientCache")
     public ArrayList<Client> getListClient(){
         return entityClientDao.getListClient();
     }
@@ -47,15 +51,15 @@ public class ClientServiceImpl implements ClientService {
         return entityClientDao.getListClientRegisterCourseSession(courseSessionId);
     }
 
-    public void saveClient(Client client) throws ClientException{
+    @CachePut(value = "clientCache", key = "#client.id")
+    public Client saveClient(Client client) throws ClientException{
         if(courseSessionService.getPercentStudent(client.getCourseSession().getId()) >= 100){
             ClientException ex = new ClientException("Too many registered client on this session");
             throw ex;
         }
 
-        entityClientDao.save(client);
-
         /*
+        TODO
         // Uncomment to send mail to the user who registered
 
         MailSender ms = new MailSender();
@@ -67,9 +71,12 @@ public class ClientServiceImpl implements ClientService {
                         nomCours + ".\nCordialement,\nNeil Farmer & Ruiqing Zhu");
 
          */
+
+        return entityClientDao.save(client);
     }
 
-    public void updateClient(Client client){
-        entityClientDao.update(client);
+    @CacheEvict(value = "clientCache", allEntries = true)
+    public Client updateClient(Client client){
+        return entityClientDao.update(client);
     }
 }

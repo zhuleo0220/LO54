@@ -1,7 +1,7 @@
 <%--
     Document   : searchCourseSession
     Created on : 26 avr. 2021, 08:35:36
-    Author     : Neil FARMER/Zhu RUIQING
+    Author     : Neil Farmer/Ruiqing Zhu
 --%>
 <%@page import="fr.utbm.school.core.entity.Location"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

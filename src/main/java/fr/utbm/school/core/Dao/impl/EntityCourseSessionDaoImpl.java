@@ -25,7 +25,7 @@ import javax.transaction.Transactional;
 
 /**
  *
- * @author neil
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Repository
 @Transactional
@@ -156,8 +156,10 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
         return percent;
     }
 
-    public void save(CourseSession courseSession) throws CourseSessionException {
+    public CourseSession save(CourseSession courseSession) throws CourseSessionException {
         logger.info("Course session : " + courseSession.toString() + " requested to be saved");
+
+        assert courseSession != null : "Null object can't be saved";
 
         if(courseSession.getStartDate().compareTo(courseSession.getEndDate()) > 0){
             logger.error("The start date is after the end date of the session");
@@ -173,14 +175,18 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
         entityManager.persist(courseSession);
         logger.info("The course session : " + courseSession.toString() + " have been saved");
 
+        return courseSession;
     }
 
-    public void update(CourseSession courseSession) {
-
+    public CourseSession update(CourseSession courseSession) {
         logger.info("Course session : " + courseSession.toString() + " requested to be updated");
+
+        assert courseSession != null : "Null object can't be merged";
         entityManager.merge(courseSession);
+
         logger.info("The course session : " + courseSession.toString() + " have been updated");
 
+        return courseSession;
 
     }
 }

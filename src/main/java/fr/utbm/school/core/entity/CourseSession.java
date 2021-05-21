@@ -5,6 +5,9 @@
  */
 package fr.utbm.school.core.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import javax.persistence.Basic;
@@ -20,34 +23,46 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Neil FARLER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 @Entity
 @Table(name = "COURSE_SESSION")
 public class CourseSession implements Serializable {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ID")
     private Long id;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
     @Column(name = "START_DATE")
     private Timestamp startDate;
 
+    @Getter
+    @Setter
     @Basic(optional = false)
     @Column(name = "END_DATE")
     private Timestamp endDate;
 
+    @Getter
+    @Setter
     @Basic(optional = true)
     @Column(name = "MAX_STUDENT")
     private Integer maxStudent;
 
+    @Getter
+    @Setter
     @JoinColumn(name = "COURSE_CODE")
     @ManyToOne(fetch = FetchType.EAGER)
     private Course course;
 
+    @Getter
+    @Setter
     @JoinColumn(name = "LOCATION_ID")
     @ManyToOne(fetch = FetchType.EAGER)
     private Location location;
@@ -73,54 +88,5 @@ public class CourseSession implements Serializable {
         this.course = course;
         this.location = location;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Timestamp getStartDate() {
-        return startDate;
-    }
-
-    public Timestamp getEndDate() {
-        return endDate;
-    }
-
-    public Integer getMaxStudent() {
-        return maxStudent;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setStartDate(Timestamp startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setEndDate(Timestamp endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setMaxStudent(Integer maxStudent) {
-        this.maxStudent = maxStudent;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public void setLocationId(Location location) {
-        this.location = location;
-    }
-
 
 }
