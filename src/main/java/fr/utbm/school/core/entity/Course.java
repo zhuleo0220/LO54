@@ -7,90 +7,59 @@ package fr.utbm.school.core.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.redisson.api.annotation.REntity;
 import org.redisson.api.annotation.RId;
+import org.redisson.api.annotation.RIndex;
 
 /**
  *
  * @author Neil Farmer/Ruiqing Zhu
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable
 @Entity
 @REntity
 @Table(name = "COURSE")
 public class Course implements Serializable {
 
+    private static final long serialVersionUID = 6529685098267757690L;
+
+    @Pattern(message = "The course code must contain to upper letter and two digit", regexp = "[A-Z]{2}[0-9]{2}")
     @Id
     @RId
     @Basic(optional = false)
     @Column(name = "CODE")
+    @NotEmpty
+    @NotNull
     private String code;
 
+    @RIndex
     @Basic(optional = false)
     @Column(name = "TITLE", length = 45)
+    @Size(min = 3, max = 45)
+    @NotEmpty
+    @NotNull
     private String title;
 
-    public Course() {
-    }
-
-    public Course(String code, String title) {
-        this.code = code;
-        this.title = title;
-    }
-
-    public Course(String title) {
-        this.title = title;
-    }
-
-    public Course(Course course) {
+    /**
+     * Copy constructor
+     *
+      * @param course to copy
+     */
+    public Course(@NonNull Course course) {
         this.code = course.getCode();
         this.title = course.getTitle();
     }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Course other = (Course) obj;
-        if (!Objects.equals(this.code, other.code)) {
-            return false;
-        }
-        return Objects.equals(this.title, other.title);
-    }
-
-
-
 }

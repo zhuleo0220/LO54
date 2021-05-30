@@ -1,7 +1,7 @@
-package fr.utbm.school.core.Dao.impl;
+package fr.utbm.school.core.dao.impl;
 
 
-import fr.utbm.school.core.Dao.UserDao;
+import fr.utbm.school.core.dao.UserDao;
 import org.springframework.stereotype.Repository;
 
 /**

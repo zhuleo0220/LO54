@@ -6,7 +6,7 @@
 package fr.utbm.school.core.service.impl;
 
 import fr.utbm.school.core.entity.Location;
-import fr.utbm.school.core.Dao.EntityLocationDao;
+import fr.utbm.school.core.dao.EntityLocationDao;
 import fr.utbm.school.core.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -14,6 +14,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 /**
@@ -37,12 +38,12 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @CachePut(value = "locationCache", key = "#location.id")
-    public Location saveLocation(Location location){
+    public Location saveLocation(@Valid Location location){
         return entityLocationDao.save(location);
     }
 
     @CacheEvict(value = "locationCache", allEntries = true)
-    public Location updateLocation(Location location){
+    public Location updateLocation(@Valid Location location){
         return entityLocationDao.update(location);
     }
 }

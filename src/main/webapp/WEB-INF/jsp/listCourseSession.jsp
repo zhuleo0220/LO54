@@ -7,6 +7,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <title>Liste des sessions</title>
+</head>
 <body>
 
 

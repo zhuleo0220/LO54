@@ -1,21 +1,14 @@
 package fr.utbm.school.core.tools;
 
-import fr.utbm.school.core.Dao.impl.EntityCourseDaoImpl;
-import fr.utbm.school.core.controller.ClientController;
-import fr.utbm.school.core.entity.Course;
-import org.apache.log4j.Logger;
+import lombok.SneakyThrows;
 import org.redisson.Redisson;
 import org.redisson.api.RKeys;
-import org.redisson.api.RLiveObjectService;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.io.IOException;
+
 
 /**
  *
@@ -23,8 +16,7 @@ import java.util.Iterator;
  */
 public class RedisUtil {
 
-    // Logger of the controller
-    private static final Logger logger = Logger.getLogger(RedisUtil.class.getName());
+    private boolean shutdownAtEnd = true;
 
     private RedissonClient client;
 
@@ -33,6 +25,11 @@ public class RedisUtil {
      */
     public RedisUtil(){
         setRedisClient();
+    }
+
+    public RedisUtil(boolean shutdownAtEnd){
+        setRedisClient();
+        this.shutdownAtEnd = shutdownAtEnd;
     }
 
     /**
@@ -50,7 +47,21 @@ public class RedisUtil {
     /**
      * Private method to establish connection to redis server
      */
-    private void setRedisClient(){
+    @SneakyThrows
+    private void setRedisClient() {
+        Config config = Config.fromYAML(new File("./src/main/resources/redissonConfig.yml"));
+
+        this.client = Redisson.create(config);
+    }
+
+    /**
+     * @deprecated
+     * This method is no longer acceptable to create a client
+     * <p> Use {@link RedisUtil#setRedisClient()} instead.
+     *
+     */
+    @Deprecated
+    private void setRedisClientSingle(){
         Config config = new Config();
         config.useSingleServer().setAddress("redis://127.0.0.1:6379");
         this.client = Redisson.create(config);
@@ -67,7 +78,7 @@ public class RedisUtil {
     /**
      * Method to empty redis server
      */
-    private void clearRedis(){
+    public void clearRedis(){
         RKeys keys = client.getKeys();
         keys.flushall();
         client.shutdown();
@@ -87,7 +98,9 @@ public class RedisUtil {
     @Override
     protected void finalize() throws Throwable{
         try {
-            this.client.shutdown();
+            if(this.shutdownAtEnd){
+                this.client.shutdown();
+            }
         } finally {
             super.finalize();
         }

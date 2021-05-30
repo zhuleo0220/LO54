@@ -6,7 +6,6 @@
 package fr.utbm.school.core.service;
 
 import fr.utbm.school.core.entity.CourseSession;
-import fr.utbm.school.core.exceptions.CourseSessionException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 /**
@@ -26,7 +25,7 @@ public interface CourseSessionService {
 
     int getPercentStudent(Long courseSessionId);
 
-    CourseSession saveCourseSession(CourseSession courseSession) throws CourseSessionException;
+    CourseSession saveCourseSession(CourseSession courseSession);
 
     CourseSession updateCourseSession(CourseSession courseSession);
 }

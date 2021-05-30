@@ -17,6 +17,7 @@
     <meta name="description" content="">
 
     <link rel="stylesheet" href="/static/tether/tether.min.css">
+    <link rel="stylesheet" href="/static/web/pagination.css">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.min.css">

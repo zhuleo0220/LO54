@@ -1,12 +1,13 @@
 package fr.utbm.school.core.controller;
 
+import com.codahale.metrics.Timer;
 import fr.utbm.school.core.entity.Course;
 import fr.utbm.school.core.entity.CourseSession;
 import fr.utbm.school.core.entity.Location;
-import fr.utbm.school.core.exceptions.CourseSessionException;
 import fr.utbm.school.core.service.CourseService;
 import fr.utbm.school.core.service.CourseSessionService;
 import fr.utbm.school.core.service.LocationService;
+import lombok.extern.log4j.Log4j;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,12 +30,10 @@ import java.util.Map;
 /**
  * @author : Neil Farmer/Ruiqing Zhu
  */
+@Log4j
 @Controller
 @RequestMapping("/CourseSession")
 public class CourseSessionController {
-
-    // Logger of the controller
-    private static final Logger logger = Logger.getLogger(ClientController.class.getName());
 
     @Autowired
     private CourseSessionService courseSessionService;
@@ -47,13 +46,18 @@ public class CourseSessionController {
 
     /**
      * Controller to add a course session
-     * @param request
      * @return
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ExceptionHandler
+    @PostMapping(value = "/add")
     @ResponseBody
     public String AddCourseSession(WebRequest request, HttpServletResponse response) throws IOException {
-        logger.trace("Controller to save a course session have been called");
+        log.trace("Controller to save a course session have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
 
         // Get all information entered in the form
         Map<String,String[]> form = request.getParameterMap();
@@ -70,7 +74,7 @@ public class CourseSessionController {
         if(form.get("maxstudent")[0] != null && !"".equals(form.get("maxstudent")[0])){
             maxStudent = Integer.parseInt(form.get("maxstudent")[0]);
         }else{
-            logger.trace("No max student for the new course session");
+            log.trace("No max student for the new course session");
         }
 
         // Parse the date
@@ -107,28 +111,41 @@ public class CourseSessionController {
 
             try {
                 courseSessionService.saveCourseSession(css);
-            } catch (CourseSessionException cex) {
-                logger.error("An CourseSession exception happen while saving the course session");
-
-                response.sendRedirect("/lo54/error");
-                return "error";
             } catch (Exception ex){
-                logger.error("An unknown error happen while saving the course session");
+                log.error("An unknown error happen while saving the course session");
+                ex.printStackTrace();
 
+                // end of the timer of teh controller
+                long timeController = contextController.stop();
+                // print it into the log
+                log.trace("Metric : time spent in AddCourseSession(nano-seconds) : " + timeController);
+
+                // return statement
                 response.sendRedirect("/lo54/error");
                 return "error";
             }
 
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in AddCourseSession(nano-seconds) : " + timeController);
+
+            // return statement
             response.sendRedirect("/Home/Homepage?success=La session a ete ajoute");
             return "home";
 
         }else{
-            logger.error("One or more parameters were null");
+            log.error("One or more parameters were null");
 
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in AddCourseSession(nano-seconds) : " + timeController);
+
+            // return statement
             response.sendRedirect("/lo54/error");
             return "error";
         }
-
     }
 
     /**
@@ -138,9 +155,14 @@ public class CourseSessionController {
      * @return
      * @throws SQLException
      */
-    @RequestMapping(value = "/addPage", method = RequestMethod.GET)
+    @GetMapping(value = "/addPage")
     public String CourseSessionPage(@RequestParam String course, Model model) throws SQLException {
-        logger.trace("Controller to load the page to save a course session have been called");
+        log.trace("Controller to load the page to save a course session have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
 
         // Create the select option for the city
         String locationSelector = ("<select id=\"location_id\" name=\"locationId\" class=\"form-control\">" +
@@ -157,6 +179,13 @@ public class CourseSessionController {
 
         model.addAttribute("locationSelect", locationSelector);
         model.addAttribute("courseSelected", courseSelected);
+
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in CourseSessionPage(nano-seconds) : " + timeController);
+
+        // return statement
         return "addCourseSession";
     }
 
@@ -169,9 +198,15 @@ public class CourseSessionController {
      */
     @GetMapping("/list")
     public String listCourseSession(@RequestParam(required=false) String locationId,
-                                    @RequestParam(required=false) String date, Model model) {
+                                    @RequestParam(required=false) String date,
+                                    @RequestParam(required=false) String courseCode, Model model) {
 
-        logger.trace("Controller to get list of course session have been called");
+        log.trace("Controller to get list of course session have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
 
         // date
         Timestamp dateChoosen = null;
@@ -184,11 +219,11 @@ public class CourseSessionController {
                         dateGoodFormat.getMonth(),
                         dateGoodFormat.getDate(), 0, 0, 0, 0);
 
-                logger.trace("The date hae successfully been parsed");
-                logger.info("The course sessions returned must start the " + dateChoosen.toString());
+                log.trace("The date hae successfully been parsed");
+                log.info("The course sessions returned must start the " + dateChoosen.toString());
             }
         }catch (ParseException ex){
-            logger.error("An error while parsing the date occurred");
+            log.error("An error while parsing the date occurred");
             ex.printStackTrace();
         }
 
@@ -198,15 +233,28 @@ public class CourseSessionController {
         // parse the location
         if(locationId != null && locationId != ""){
             locationIdLong = Long.parseLong(locationId);
-            logger.info("The course sessions returned must be at the city with the id " + locationIdLong.toString());
+            log.info("The course sessions returned must be at the city with the id " + locationIdLong.toString());
         }
 
-        // Get all the course seesion
-        ArrayList<CourseSession> selectedCourseSession = courseSessionService.searchCourseSessionByParameter(dateChoosen, locationIdLong);
+        // Time the transaction
+        Timer.Context contextTransaction = timer.time();
+
+        // Get all the course session
+        ArrayList<CourseSession> selectedCourseSession = courseSessionService.searchCourseSessionByParameter(dateChoosen, locationIdLong, courseCode);
+
+        // end the timer
+        long timeTransaction = contextTransaction.stop();
 
         // If there's no course then print it to the html page
         if(selectedCourseSession.isEmpty()){
             model.addAttribute("listSession","<p><b>No session found</b></p>");
+
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in listCourseSession(nano-seconds) : " + timeController + " | time spent in searchCourseSessionByParameter(nano-seconds) : " + timeTransaction);
+
+            // return statement
             return "listCourseSession";
         }
 
@@ -257,6 +305,12 @@ public class CourseSessionController {
         courseSessionListString += "</div>";
         model.addAttribute("listSession", courseSessionListString);
 
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in listCourseSession(nano-seconds) : " + timeController + " | time spent in searchCourseSessionByParameter(nano-seconds) : " + timeTransaction);
+
+        // return statement
         return "listCourseSession";
     }
 
@@ -266,16 +320,36 @@ public class CourseSessionController {
      * @return
      */
     @GetMapping("/searchPage")
-    public String searchCourseSessionPage(Model model){
-        logger.trace("Controller to load the page to search a course session have been called");
+    public String searchCourseSessionPage(@RequestParam(required=false) String courseCode, Model model){
+        log.trace("Controller to load the page to search a course session have been called");
 
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
+
+        // Create the city select
         String locationSelector = "";
-
         for(Location lo:locationService.getListLocation()){
             locationSelector += ("<option value=\"" + lo.getId() + "\">" + lo.getCity() + "</option>");
         }
-
         model.addAttribute("locationSelect", locationSelector);
+
+        // Hide in the form the course code
+        if(courseCode != null && courseCode != ""){
+            String courseCodeInput = "<div data-for=\"courseCode\">" +
+                            "<input hidden=\"true\" type=\"text\" name=\"courseCode\"  data-form-field=\"courseCode\" value=\"" + courseCode + "\" style=\"display:none;\"></div>";
+            model.addAttribute("courseCodeInput", courseCodeInput);
+        }else{
+            model.addAttribute("courseCodeInput", "");
+        }
+
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in searchCourseSessionPage(nano-seconds) : " + timeController);
+
+        // return statement
         return "searchCourseSession";
     }
 
@@ -287,13 +361,32 @@ public class CourseSessionController {
      * @return
      * @throws IOException
      */
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ExceptionHandler
+    @PostMapping(value = "/search")
     @ResponseBody
-    public String searchCourse(@RequestParam String locationId, @RequestParam String date, HttpServletResponse response) throws IOException {
-        logger.trace("Controller to search a list of course session have been called");
+    public String searchCourse(@RequestParam String locationId, @RequestParam String date,
+                               @RequestParam(required=false) String courseCode,
+                               HttpServletResponse response)throws IOException {
+        
+        log.trace("Controller to search a list of course session have been called");
 
-        response.sendRedirect("/CourseSession/list?locationId=" + locationId + "&date=" + date);
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
 
+        String courseParam = "";
+        if(courseCode != null && courseCode != ""){
+            courseParam = "&courseCode=" + courseCode;
+        }
+
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in searchCourse(nano-seconds) : " + timeController);
+
+        // return statement
+        response.sendRedirect("/CourseSession/list?locationId=" + locationId + "&date=" + date + courseParam);
         return "listCourseSession";
     }
 

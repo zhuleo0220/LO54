@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Neil FARMER
+ * @author Neil Farmer/Ruiqing Zhu
  */
 public interface LocationService {
     Location searchLocationById(Long idLocation);

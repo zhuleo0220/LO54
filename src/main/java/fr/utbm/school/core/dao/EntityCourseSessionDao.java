@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.school.core.Dao;
+package fr.utbm.school.core.dao;
 
 import fr.utbm.school.core.entity.CourseSession;
-import fr.utbm.school.core.exceptions.CourseSessionException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public interface EntityCourseSessionDao {
 
     int getPercentStudent(Long courseSessionId);
 
-    CourseSession save(CourseSession courseSession) throws CourseSessionException;
+    CourseSession save(CourseSession courseSession);
 
     CourseSession update(CourseSession courseSession);
 }

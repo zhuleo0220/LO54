@@ -5,7 +5,7 @@
  */
 package fr.utbm.school.core.service.impl;
 
-import fr.utbm.school.core.Dao.impl.EntityClientDaoImpl;
+import fr.utbm.school.core.dao.impl.EntityClientDaoImpl;
 import fr.utbm.school.core.entity.Client;
 import fr.utbm.school.core.exceptions.ClientException;
 import fr.utbm.school.core.service.ClientService;
@@ -17,6 +17,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 
 
@@ -52,15 +53,15 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @CachePut(value = "clientCache", key = "#client.id")
-    public Client saveClient(Client client) throws ClientException{
+    public Client saveClient(@Valid Client client) throws ClientException{
         if(courseSessionService.getPercentStudent(client.getCourseSession().getId()) >= 100){
             ClientException ex = new ClientException("Too many registered client on this session");
             throw ex;
         }
 
+
         /*
-        TODO
-        // Uncomment to send mail to the user who registered
+        // TODO Uncomment to send mail to the user who registered
 
         MailSender ms = new MailSender();
         String nomCours = client.getCourseSession().getCourse().getTitle();
@@ -70,13 +71,13 @@ public class ClientServiceImpl implements ClientService {
                         client.getLastName() + ", \nNous vous confirmons votre inscription au cours " +
                         nomCours + ".\nCordialement,\nNeil Farmer & Ruiqing Zhu");
 
-         */
+        */
 
         return entityClientDao.save(client);
     }
 
     @CacheEvict(value = "clientCache", allEntries = true)
-    public Client updateClient(Client client){
+    public Client updateClient(@Valid Client client){
         return entityClientDao.update(client);
     }
 }

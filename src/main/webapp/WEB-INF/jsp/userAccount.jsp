@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html  >
 <head>
+    <title>Mon compte</title>
+</head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Mobirise v5.3.5, mobirise.com">
@@ -34,7 +37,7 @@
     <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
         <div class="container">
             <div class="navbar-brand">
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="home.jsp">Ecole</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="/Home/Homepage">Ecole</a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">

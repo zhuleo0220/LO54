@@ -14,6 +14,9 @@
     <packaging>war</packaging>
 
     <name>lo54</name>
+    <description>
+        LO54 Project
+    </description>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -113,6 +116,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.dropwizard.metrics/metrics-core -->
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>4.2.0</version>
+        </dependency>
 
     </dependencies>
 

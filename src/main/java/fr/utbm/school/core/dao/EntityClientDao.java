@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.school.core.Dao;
+package fr.utbm.school.core.dao;
 
 import fr.utbm.school.core.entity.Client;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.core.CrudMethods;
 
 import java.util.ArrayList;
 

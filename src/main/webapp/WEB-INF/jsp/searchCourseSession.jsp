@@ -8,7 +8,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
-
+<head>
+    <title>Rechercher une session</title>
+</head>
 <body>
 
 
@@ -37,7 +39,8 @@
                         <div data-for="date" class="col-lg-4 col-md-12 col-sm-12 form-group">
                             <input type="text" name="date" placeholder="Date début du cours" data-form-field="date" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" value="" id="email-form9-j">
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Submit</button></div>
+                        ${courseCodeInput}
+                        <div class="col-lg-4 col-md-12 col-sm-12 mbr-section-btn align-center"><button type="submit" class="btn btn-primary display-4">Rechercher</button></div>
                     </div>
                 </form>
             </div>

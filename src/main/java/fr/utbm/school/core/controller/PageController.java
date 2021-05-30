@@ -1,5 +1,6 @@
 package fr.utbm.school.core.controller;
 
+import lombok.extern.log4j.Log4j;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.AntPathMatcher;
@@ -11,13 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author : Neil Farmer/Ruiqing Zhu
  */
+@Log4j
 @RequestMapping
 @Controller
 public class PageController {
 
-    // Logger of the controller
-    private static final Logger logger = Logger.getLogger(HomeController.class.getName());
-
+    /**
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/page/**/*.jsp")
     public String page(HttpServletRequest request) {
         String pattern = (String) request
