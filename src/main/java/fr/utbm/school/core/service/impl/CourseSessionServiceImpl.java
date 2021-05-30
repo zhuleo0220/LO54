@@ -6,8 +6,7 @@
 package fr.utbm.school.core.service.impl;
 
 import fr.utbm.school.core.entity.CourseSession;
-import fr.utbm.school.core.exceptions.CourseSessionException;
-import fr.utbm.school.core.Dao.EntityCourseSessionDao;
+import fr.utbm.school.core.dao.EntityCourseSessionDao;
 import fr.utbm.school.core.service.CourseSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -15,6 +14,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
@@ -55,12 +55,12 @@ public class CourseSessionServiceImpl implements CourseSessionService {
     }
 
     @CachePut(value = "courseSessionCache", key = "#courseSession.id")
-    public CourseSession saveCourseSession(CourseSession courseSession) throws CourseSessionException{
+    public CourseSession saveCourseSession(@Valid CourseSession courseSession){
         return entityCourseSessionDao.save(courseSession);
     }
 
     @CacheEvict(value = "courseSessionCache", allEntries = true)
-    public CourseSession updateCourseSession(CourseSession courseSession){
+    public CourseSession updateCourseSession(@Valid CourseSession courseSession){
         return entityCourseSessionDao.update(courseSession);
     }
 }

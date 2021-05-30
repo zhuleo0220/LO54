@@ -5,29 +5,34 @@
  */
 package fr.utbm.school.core.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
  *
  * @author Neil FARMER/Ruiqing Zhu
  */
+// Using data result in stack overflow error !
+//@Data
+@RequiredArgsConstructor
+//@NoArgsConstructor
+@AllArgsConstructor
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable
 @Entity
 @Table(name = "CLIENT")
 public class Client implements Serializable{
+
+    private static final long serialVersionUID = 6529685098267757691L;
 
     @Getter
     @Setter
@@ -41,18 +46,24 @@ public class Client implements Serializable{
     @Setter
     @Basic(optional = false)
     @Column(name = "LASTNAME", length = 45)
+    @NotEmpty
+    @NotNull
     private String lastName;
 
     @Getter
     @Setter
     @Basic(optional = false)
     @Column(name = "FIRSTNAME", length = 45)
+    @NotEmpty
+    @NotNull
     private String firstName;
 
     @Getter
     @Setter
     @Basic(optional = false)
     @Column(name = "ADDRESS", length = 128)
+    @NotEmpty
+    @NotNull
     private String address;
 
     @Getter
@@ -60,6 +71,8 @@ public class Client implements Serializable{
     @Basic(optional = false)
     @Column(name = "PHONE", length = 12)
     @Size(min=7, max=12)
+    @NotEmpty
+    @NotNull
     private String phone;
 
     @Getter
@@ -67,72 +80,16 @@ public class Client implements Serializable{
     @Basic(optional = false)
     @Column(name = "EMAIL", length = 254)
     @Size(min=3, max=254)
+    @Pattern(message = "Invalid email", regexp = "^.+@.+\\..+$")
+    @NotEmpty
+    @NotNull
     private String email;
 
+    @Valid
     @Getter
     @Setter
     @JoinColumn(name = "Course_SESSION_ID")
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     private CourseSession courseSession;
 
-    /**
-     * Default Constructor
-     */
-    public Client() {
-    }
-
-    /**
-     * Constructor
-     *
-     * @param id
-     * @param lastName
-     * @param firstName
-     * @param address
-     * @param phone
-     * @param email
-     * @param courseSession
-     */
-    public Client(Long id, String lastName, String firstName, String address,
-                  String phone, String email, CourseSession courseSession) {
-        this.id = id;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-        this.courseSession = courseSession;
-    }
-
-    /**
-     * Constructor
-     *
-     * @param lastName
-     * @param firstName
-     * @param address
-     * @param phone
-     * @param email
-     * @param courseSession
-     */
-    public Client(String lastName, String firstName, String address,
-                  String phone, String email, CourseSession courseSession) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-        this.courseSession = courseSession;
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", courseSession=" + courseSession +
-                '}';
-    }
 }

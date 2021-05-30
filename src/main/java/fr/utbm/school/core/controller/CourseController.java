@@ -1,9 +1,11 @@
 package fr.utbm.school.core.controller;
 
+import com.codahale.metrics.Timer;
 import fr.utbm.school.core.entity.Course;
 import fr.utbm.school.core.entity.CourseSession;
 import fr.utbm.school.core.service.CourseService;
 import fr.utbm.school.core.service.CourseSessionService;
+import lombok.extern.log4j.Log4j;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,21 +13,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static fr.utbm.school.core.functions.Levenshtein.closestKeyword;
+import static fr.utbm.school.core.functions.MoreFunction.nvl;
 
 /**
  * @author : Neil Farmer/Ruiqing Zhu
  */
+@Log4j
 @Controller
 @RequestMapping("/Course")
 public class CourseController {
-
-    // Logger of the controller
-    private static final Logger logger = Logger.getLogger(CourseController.class.getName());
 
     @Autowired
     private CourseService courseService;
@@ -39,20 +41,38 @@ public class CourseController {
      * @return
      * @throws SQLException
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ExceptionHandler
+    @PostMapping(value = "/add")
     @ResponseBody
-    public String addCourse(Course course, HttpServletResponse response) throws SQLException, IOException {
-        logger.trace("Controller to add a course have been called");
+    public String addCourse(@Valid Course course, HttpServletResponse response) throws SQLException, IOException {
+        log.trace("Controller to add a course have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
 
         // Save the course
         try {
+            // save the course
             courseService.saveCourse(course);
         }catch (Exception ex){
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in myAccoutPage(nano-seconds) : " + timeController);
+
+            // return statement
             response.sendRedirect("/LO54/error");
             return "error";
         }
 
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in myAccoutPage(nano-seconds) : " + timeController);
 
+        // return statement
         response.sendRedirect("/Home/Homepage?success=Le cours a ete ajoute");
         return "home";
 
@@ -62,9 +82,9 @@ public class CourseController {
      * Method to go to the page to add a course
      * @return
      */
-    @RequestMapping(value = "/addpage", method = RequestMethod.GET)
+    @GetMapping(value = "/addpage")
     public String coursePage() {
-        logger.trace("Controller to load the page to add a course have been called");
+        log.trace("Controller to load the page to add a course have been called");
 
         return "addCourseForm";
     }
@@ -76,34 +96,83 @@ public class CourseController {
      * @return
      */
     @GetMapping("/listCourse")
-    public String listCourse(@RequestParam(required=false) String keyword, Model model){
-        logger.trace("Controller to get a list of course have been called");
+    public String listCourse(@RequestParam(required=false) String keyword,
+                             @RequestParam(required=false) Integer page, Model model){
+        log.trace("Controller to get a list of course have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
+
+        // initialize the page number
+        if(page == null){
+            page = 1;
+        }
+
+        // Time the transaction
+        Timer.Context contextTransaction = timer.time();
 
         // Get all the course
-        ArrayList<Course> selectedCourse = courseService.getCourseByKeyword(keyword);
+        ArrayList<Course> selectedCourse = courseService.getCourseByKeyword(keyword, page);
+
+        // end the timer
+        long timeTransaction = contextTransaction.stop();
 
         // If there's no course then print it to the html page
         if(selectedCourse.isEmpty()) {
-            logger.info("No course found with the keyword");
+            log.info("No course found with the keyword");
 
+            // If the keyword was not null
+            // We will search for a better keyword
             if (keyword != null) {
+                // Levenshtein algo
                 String bestKeyword = closestKeyword(keyword, courseService.getCourseKeyword(),
                         1, (int) Math.floor(keyword.length() / 2));
 
+                // if a keyword have been found
                 if (bestKeyword != null) {
+                    // Display the best keyword
                     String betterKeyword = "<p>Rechercher plutot : <a href=/Course/listCourse?keyword=" +
                             bestKeyword + ">" + bestKeyword + "</a></p>";
 
+                    // end of the timer of teh controller
+                    long timeController = contextController.stop();
+                    // print it into the log
+                    log.trace("Metric : time spent in listCourse(nano-seconds) : " + timeController + " | time spent in getCourseByKeyword(nano-seconds) : " + timeTransaction);
+
+                    // return statement
                     model.addAttribute("list", betterKeyword);
                     return "listCourse";
                 }
             }
 
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in listCourse(nano-seconds) : " + timeController + " | time spent in getCourseByKeyword(nano-seconds) : " + timeTransaction);
+
+            // return statement
             model.addAttribute("list", "<p>Aucun cours trouvé<p>");
             return "listCourse";
 
         }
 
+        // The pagination number
+        String pagin = "";
+        pagin += "<div class=\"pagination\">";
+        for(Integer nbPage = 1; nbPage <= this.courseService.getNbPageNeeded(keyword); nbPage++){
+            if(nbPage == page){
+                pagin += "<a href=\"#\" class=\"active\">" + nbPage + "</a>";
+            }else{
+                pagin += "<a href=\"/Course/listCourse?keyword=" + nvl(keyword, "") + "&page=" + nbPage + "\">" + nbPage + "</a>";
+            }
+        }
+        // end the div section
+        pagin += "</div>";
+
+        // add the pagination to the model
+        model.addAttribute("pagination", pagin);
 
         // String that will be returned to print the course found
         String courseListString = "";
@@ -128,6 +197,12 @@ public class CourseController {
                             "</div>");
         }
 
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in listCourse(nano-seconds) : " + timeController + " | time spent in getCourseByKeyword(nano-seconds) : " + timeTransaction);
+
+        // return statement
         // return the string with all informations
         model.addAttribute("list", courseListString);
         return "listCourse";
@@ -141,10 +216,21 @@ public class CourseController {
      */
     @GetMapping("/courseDescription")
     public String listCourseSession(@RequestParam String course, Model model) {
-        logger.trace("Controller to get a description of a course have been called");
+        log.trace("Controller to get a description of a course have been called");
+
+        // Metrics
+        Timer timer = new Timer();
+        // Time the controller
+        Timer.Context contextController = timer.time();
+
+        // Time the transaction
+        Timer.Context contextTransaction = timer.time();
 
         // search the course by his id
         Course courseObject = courseService.searchCourseById(course);
+
+        // end the timer
+        long timeTransaction = contextTransaction.stop();
 
         // Put information about this course for the JSP
         model.addAttribute("courseCode", courseObject.getCode());
@@ -159,6 +245,12 @@ public class CourseController {
 
         // If there's no course then print it to the html page
         if(selectedCourseSession.isEmpty()){
+            // end of the timer of teh controller
+            long timeController = contextController.stop();
+            // print it into the log
+            log.trace("Metric : time spent in listCourseSession(nano-seconds) : " + timeController + " | time spent in searchCourseById(nano-seconds) : " + timeTransaction);
+
+            // return statement
             model.addAttribute("courseSessionFound", "<p><b>No session found</b></p>");
             return "courseDescription";
         }
@@ -209,6 +301,12 @@ public class CourseController {
             );
         }
 
+        // end of the timer of teh controller
+        long timeController = contextController.stop();
+        // print it into the log
+        log.trace("Metric : time spent in listCourseSession(nano-seconds) : " + timeController + " | time spent in searchCourseById(nano-seconds) : " + timeTransaction);
+
+        // return statement
         model.addAttribute("courseSessionFound", courseSessionListString);
         return "courseDescription";
     }
@@ -220,13 +318,13 @@ public class CourseController {
      * @return
      * @throws IOException
      */
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ExceptionHandler
+    @PostMapping(value = "/search")
     @ResponseBody
     public String searchCourse(@RequestParam String keyword, HttpServletResponse response) throws IOException {
-        logger.trace("Controller to search a course have been called");
+        log.trace("Controller to search a course have been called");
 
         response.sendRedirect("/Course/listCourse?keyword=" + keyword);
-
         return "listCourse";
     }
 
@@ -234,9 +332,9 @@ public class CourseController {
      * Method to load the page to search for a course
      * @return
      */
-    @RequestMapping(value = "/searchPage", method = RequestMethod.GET)
+    @GetMapping(value = "/searchPage")
     public String searchCoursePage() {
-        logger.trace("Controller to load the page to search for a course have been called");
+        log.trace("Controller to load the page to search for a course have been called");
 
         return "searchCourse";
     }

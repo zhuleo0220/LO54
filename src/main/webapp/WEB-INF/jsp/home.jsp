@@ -10,6 +10,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <title>Accueil</title>
+</head>
 <body>
 
 
@@ -31,7 +34,7 @@
     <div class="container">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>Features</strong></h4>
+                <strong>Services</strong></h4>
         </div>
         <div class="row mt-4">
             <div class="item features-image сol-12 col-md-6 col-lg-4">

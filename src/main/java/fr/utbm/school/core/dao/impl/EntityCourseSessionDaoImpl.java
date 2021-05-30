@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.school.core.Dao.impl;
+package fr.utbm.school.core.dao.impl;
 
-import fr.utbm.school.core.Dao.EntityClientDao;
-import fr.utbm.school.core.Dao.EntityCourseSessionDao;
+import fr.utbm.school.core.dao.EntityClientDao;
+import fr.utbm.school.core.dao.EntityCourseSessionDao;
 import fr.utbm.school.core.entity.Client;
 import fr.utbm.school.core.entity.CourseSession;
-import fr.utbm.school.core.exceptions.CourseSessionException;
-import org.apache.log4j.Logger;
+import lombok.NonNull;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -24,14 +23,15 @@ import javax.transaction.Transactional;
 
 
 /**
+ *  Implementation of the DAO (Data Access Object) of
+ *  {@link CourseSession}
  *
  * @author Neil Farmer/Ruiqing Zhu
  */
+@Log4j
 @Repository
 @Transactional
 public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
-
-    private static final Logger logger = Logger.getLogger(EntityCourseSessionDao.class.getName());
 
     @PersistenceContext
     private EntityManager entityManager ;
@@ -39,37 +39,68 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
     @Autowired
     private EntityClientDao entityClientDao;
 
-    public CourseSession getCourseSessionById(Long courseSessionId){
-        logger.info("The course session with the id=" + courseSessionId + " requested");
+    /**
+     * Method to get a course session by his id
+     *
+     * @param courseSessionId of the course session searched
+     * @return course session with the given id
+     */
+    public CourseSession getCourseSessionById(@NonNull Long courseSessionId){
+        log.info("The course session with the id=" + courseSessionId + " requested");
 
         return entityManager.find(CourseSession.class, courseSessionId);
     }
 
+    /**
+     * Method to get all course session
+     *
+     * @return list of all course
+     */
     public ArrayList<CourseSession> getListCourseSession(){
-        logger.info("All course session requested");
+        log.info("All course session requested");
+
         ArrayList<CourseSession> listCourseSession = new ArrayList<CourseSession>();
-        Query q = entityManager.createQuery("from CourseSession");
+
+        // Create the query
+        Query q = entityManager.createQuery("from CourseSession CSS order by CSS.startDate");
+
+        // Get the result of the query
         listCourseSession = (ArrayList<CourseSession>) q.getResultList();
+
         return listCourseSession;
     }
 
-    public ArrayList<CourseSession> searchCourseSessionByCourseId(String idCourse){
-        logger.info("The course session of course with the id=" + idCourse + " requested");
+    /**
+     * Get course session link to a course
+     *
+     * @param idCourse of the course we looked for the course session linked to it
+     * @return list of course session linked to the given course id
+     */
+    public ArrayList<CourseSession> searchCourseSessionByCourseId(@NonNull String idCourse){
+        log.info("The course session of course with the id=" + idCourse + " requested");
 
-
-        Query query = entityManager.createQuery("FROM CourseSession CSS WHERE CSS.course.code = :courseId");
+        // Create the query
+        Query query = entityManager.createQuery("FROM CourseSession CSS WHERE CSS.course.code = :courseId order by CSS.startDate");
         query.setParameter("courseId", idCourse);
 
-	ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
+        // Get the result of teh query
+	    ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
         courseSessionList = (ArrayList<CourseSession>) query.getResultList();
 
         return courseSessionList;
     }
 
+    /**
+     * Method to get a course session by giving parameter
+     *
+     * @param date of the course session searched for
+     * @param locationId of the course session searched for
+     * @return List of course session
+     */
     public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId){
-        logger.info("Course session search for giving parameter");
+        log.info("Course session search for giving parameter");
 
-
+        // Create the query string
         String sqlQuery = "FROM CourseSession CSS";
         if(date != null && locationId != null){
             sqlQuery += " WHERE CSS.location.id = :locationId and YEAR(CSS.startDate) = :dateYear AND MONTH(CSS.startDate) = :dateMonth AND DAY(CSS.startDate) = :dateDay";
@@ -79,8 +110,13 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
             sqlQuery += " WHERE CSS.location.id = :locationId";
         }
 
-	Query query = entityManager.createQuery(sqlQuery);
+        // Add the group by and order by clause to display it more properly
+        sqlQuery += " ORDER BY CSS.course.code, CSS.startDate";
 
+        // Build the query
+	    Query query = entityManager.createQuery(sqlQuery);
+
+	    // Add the parameter
         if(date != null){
             int yearSession = date.getYear() + 1900;
             query.setParameter("dateYear", yearSession);
@@ -92,21 +128,36 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
             query.setParameter("locationId", locationId);
         }
 
-	ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
+        // Get the results
+	    ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
         courseSessionList = (ArrayList<CourseSession>) query.getResultList();
 
         return courseSessionList;
     }
 
+    /**
+     * Method to search course session by parameters
+     *
+     * if none course have been indicated
+     * it will go to the method
+     * {@link EntityCourseSessionDaoImpl#searchCourseSessionByParameter(Timestamp date, Long locationId)}
+     *
+     * @param date of the session searched
+     * @param locationId of the session searched
+     * @param courseCode of the session searched
+     * @return List of course session with the corresponding parameter
+     */
     public ArrayList<CourseSession> searchCourseSessionByParameter(Timestamp date, Long locationId, String courseCode){
-        logger.info("Course session search for giving parameter");
+        log.info("Course session search for giving parameter");
 
+        // if none course have been indicated
         if(courseCode == null){
+            // Can use an other method
             return this.searchCourseSessionByParameter(date, locationId);
         }
 
-
-        String sqlQuery = "FROM CourseSession CSS WHERE css.course.code = :courseCode";
+        // Create the query string
+        String sqlQuery = "FROM CourseSession CSS WHERE CSS.course.code = :courseCode";
         if(date != null && locationId != null){
             sqlQuery += " AND CSS.location.id = :locationId AND YEAR(CSS.startDate) = :dateYear AND MONTH(CSS.startDate) = :dateMonth AND DAY(CSS.startDate) = :dateDay";
         }else if(date != null){
@@ -115,9 +166,14 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
             sqlQuery += " AND CSS.location.id = :locationId";
         }
 
-	Query query = entityManager.createQuery(sqlQuery);
+        // Add the group by and order by clause to display it more properly
+        sqlQuery += " ORDER BY CSS.course.code, CSS.startDate";
+
+        // Build the query
+	    Query query = entityManager.createQuery(sqlQuery);
         query.setParameter("courseCode", courseCode);
 
+        // Add the parameter to the query
         if(date != null){
             int yearSession = date.getYear() + 1900;
             query.setParameter("dateYear", yearSession);
@@ -129,14 +185,20 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
             query.setParameter("locationId", locationId);
         }
 
-	ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
+	    ArrayList<CourseSession> courseSessionList = new ArrayList<CourseSession>();
         courseSessionList = (ArrayList<CourseSession>) query.getResultList();
 
         return courseSessionList;
     }
 
-    public int getPercentStudent(Long courseSessionId){
-        logger.info("The percent of course session filled for id=" + courseSessionId + " is requested");
+    /**
+     * Method to know how filled a course session is
+     *
+     * @param courseSessionId to look for
+     * @return A percent of the filling of a course
+     */
+    public int getPercentStudent(@NonNull Long courseSessionId){
+        log.info("The percent of course session filled for id=" + courseSessionId + " is requested");
 
         int percent;
 
@@ -156,35 +218,34 @@ public class EntityCourseSessionDaoImpl implements EntityCourseSessionDao {
         return percent;
     }
 
-    public CourseSession save(CourseSession courseSession) throws CourseSessionException {
-        logger.info("Course session : " + courseSession.toString() + " requested to be saved");
-
-        assert courseSession != null : "Null object can't be saved";
-
-        if(courseSession.getStartDate().compareTo(courseSession.getEndDate()) > 0){
-            logger.error("The start date is after the end date of the session");
-
-            throw new CourseSessionException("The start date is after the end date of the session");
-        }else if(courseSession.getStartDate().compareTo(Timestamp.from(Instant.now())) < 0){
-            logger.error("The start date is before the date");
-
-            throw new CourseSessionException("The start date is before the date");
-        }
-
+    /**
+     * Method to save a course session
+     *
+     * @param courseSession to save
+     * @return saved course session
+     */
+    public CourseSession save(@NonNull CourseSession courseSession) {
+        log.info("Course session : " + courseSession.toString() + " requested to be saved");
 
         entityManager.persist(courseSession);
-        logger.info("The course session : " + courseSession.toString() + " have been saved");
+
+        log.info("The course session : " + courseSession.toString() + " have been saved");
 
         return courseSession;
     }
 
-    public CourseSession update(CourseSession courseSession) {
-        logger.info("Course session : " + courseSession.toString() + " requested to be updated");
+    /**
+     * Method to update a course session
+     *
+     * @param courseSession to update
+     * @return updated course session
+     */
+    public CourseSession update(@NonNull CourseSession courseSession) {
+        log.info("Course session : " + courseSession.toString() + " requested to be updated");
 
-        assert courseSession != null : "Null object can't be merged";
         entityManager.merge(courseSession);
 
-        logger.info("The course session : " + courseSession.toString() + " have been updated");
+        log.info("The course session : " + courseSession.toString() + " have been updated");
 
         return courseSession;
 

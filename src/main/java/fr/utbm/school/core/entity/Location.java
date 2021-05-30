@@ -5,30 +5,31 @@
  */
 package fr.utbm.school.core.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
  * @author Neil Farmer/Ruiqing Zhu
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable
 @Entity
 @Table(name = "LOCATION")
 public class Location implements Serializable {
 
-    @Getter
-    @Setter
+    private static final long serialVersionUID = 6529685098267757693L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,23 +37,11 @@ public class Location implements Serializable {
     @Column(name = "ID")
     private Long id;
 
-    @Getter
-    @Setter
     @Basic(optional = false)
     @Column(name = "CITY", length = 45)
     @Size(min = 1, max = 45)
+    @NotEmpty
+    @NotNull
     private String city;
-
-    public Location() {
-    }
-
-    public Location(Long id, String city) {
-        this.id = id;
-        this.city = city;
-    }
-
-    public Location(String city) {
-        this.city = city;
-    }
 
 }

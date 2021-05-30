@@ -8,6 +8,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <title>Ajouter une ville</title>
+</head>
 <body>
 
 

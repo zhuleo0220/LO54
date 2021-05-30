@@ -26,4 +26,12 @@ public interface CourseService {
     Course updateCourse(Course course);
 
     ArrayList<String> getCourseKeyword();
+
+    Integer getNbPageNeeded();
+
+    Integer getNbPageNeeded(String keyword);
+
+    ArrayList<Course> getListCourse(Integer pageNumber);
+
+    ArrayList<Course> getCourseByKeyword(String keyword, Integer pageNumber);
 }

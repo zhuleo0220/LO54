@@ -8,6 +8,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <title>${courseTitle}</title>
+</head>
 <body>
 
 
@@ -27,8 +30,9 @@
 <section class="features9 cid-svAcKF7qHy" id="features10-e">
     <div class="container">
         <div class="mbr-section-head">
+            <a class="btn btn-primary display-4" href="/CourseSession/searchPage?courseCode=${courseCode}">Filtrer les sessions</a>
             <h3 class="mbr-section-title mbr-fonts-style mb-0 display-2">
-                <strong>Liste des session</strong></h3>
+            <strong>Liste des session</strong></h3>
         </div>
         ${courseSessionFound}
     </div>

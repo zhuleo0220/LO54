@@ -8,7 +8,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
-
+<head>
+    <title>Rechercher un cours</title>
+</head>
 <body>
 
 

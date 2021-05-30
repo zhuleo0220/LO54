@@ -1,5 +1,6 @@
 package fr.utbm.school.core.functions;
 
+import lombok.NonNull;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Levenshtein {
      * @param y second string
      * @return Levenshtein distance
      */
-    public static int calculate(String x, String y) {
+    public static int calculate(@NonNull String x, @NonNull String y) {
         logger.trace("Calcul Levenshtein distance for the word " + x + " and " + y);
 
         int[][] dp = new int[x.length() + 1][y.length() + 1];
@@ -44,11 +45,25 @@ public class Levenshtein {
         return dp[x.length()][y.length()];
     }
 
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     private static int costOfSubstitution(char a, char b) {
         return a == b ? 0 : 1;
     }
 
-    public static String closestKeyword(String wordToFind, ArrayList<String> wordsList,
+    /**
+     *
+     * @param wordToFind
+     * @param wordsList
+     * @param approximativeStop
+     * @param minEvaluation
+     * @return
+     */
+    public static String closestKeyword(@NonNull String wordToFind, @NonNull ArrayList<String> wordsList,
                                         int approximativeStop, int minEvaluation){
 
         Integer bestEval = Integer.MAX_VALUE;
@@ -70,6 +85,13 @@ public class Levenshtein {
         return bestWord;
     }
 
+    /**
+     *
+     * @param firstInt
+     * @param secondInt
+     * @param thirdInt
+     * @return
+     */
     private static int min(int firstInt, int secondInt, int thirdInt) {
         return Math.min(Math.min(firstInt, secondInt), thirdInt);
     }

@@ -6,7 +6,7 @@
 package fr.utbm.school.core.service.impl;
 
 import fr.utbm.school.core.entity.Course;
-import fr.utbm.school.core.Dao.EntityCourseDao;
+import fr.utbm.school.core.dao.EntityCourseDao;
 import fr.utbm.school.core.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -14,6 +14,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -48,14 +49,19 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @CachePut(value = "courseCache", key = "#course.code")
-    public Course saveCourse(Course course) throws SQLException{
+    public Course saveCourse(@Valid Course course) throws SQLException{
+
+        // Save in JavaDB
         entityCourseDao.save(course);
-        this.redisCourseService.save(course);
+
+        // Save the liveObject in Redis
+        // Publish in the topic : courseTopic
+        this.redisCourseService.publish("courseTopic", course);
         return course;
     }
 
     @CacheEvict(value = "courseCache", allEntries = true)
-    public Course updateCourse(Course course){
+    public Course updateCourse(@Valid Course course){
         entityCourseDao.update(course);
         this.redisCourseService.update(course);
         return course;
@@ -63,6 +69,22 @@ public class CourseServiceImpl implements CourseService {
 
     public ArrayList<String> getCourseKeyword(){
         return entityCourseDao.getCourseKeyword();
+    }
+
+    public Integer getNbPageNeeded(){
+        return this.entityCourseDao.getNbPageNeeded();
+    }
+
+    public Integer getNbPageNeeded(String keyword){
+        return this.entityCourseDao.getNbPageNeeded(keyword);
+    }
+
+    public ArrayList<Course> getListCourse(Integer pageNumber){
+        return this.entityCourseDao.getListCourse(pageNumber);
+    }
+
+    public ArrayList<Course> getCourseByKeyword(String keyword, Integer pageNumber){
+        return this.entityCourseDao.getCourseByKeyword(keyword, pageNumber);
     }
 
 }

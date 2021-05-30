@@ -8,7 +8,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
-
+<head>
+    <title>Liste des cours</title>
+</head>
 <body>
 <section class="features9 cid-svA6uBZdYn" id="features10-9">
     <div class="container">
@@ -18,6 +20,9 @@
         </div>
         <div class="row mt-4">
             ${list}
+        </div>
+        <div class="container">
+            ${pagination}
         </div>
     </div>
 </section>

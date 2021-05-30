@@ -9,6 +9,9 @@
 <%@include file="navBar.jsp" %>
 <!DOCTYPE html>
 <html  >
+<head>
+    <title>Ajouter une session</title>
+</head>
 <body>
 
 <section class="form7 cid-svAeSNlYih" id="form7-h">

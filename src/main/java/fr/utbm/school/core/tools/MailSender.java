@@ -15,10 +15,10 @@ import javax.mail.internet.MimeMessage;
  * @author Neil Farmer / Ruiquing Zhu
  */
 public class MailSender {
-    // Sender's email ID needs to be mentioned
+    // Sender's email
     String sender = "LO54.projetutbm@gmail.com";
 
-    // Assuming you are sending email from through gmails smtp
+    // sending email from through gmails smtp
     String host = "smtp.gmail.com";
 
     // Get system properties
@@ -39,12 +39,15 @@ public class MailSender {
 
     /**
      * Method to send a mail
+     *
      * @param receiver email of the receiver
      * @param header header of the email
      * @param body body of the email
+     * @return A boolean to know if the mail have been send
      */
     public boolean sendMail(String receiver, String header, String body){
-        // Get the Session object.// and pass username and password
+        // Get the Session object
+        // and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication("LO54.projetutbm@gmail.com", "9Mfj@Mqaf+qd#+9^");

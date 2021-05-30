@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.school.core.Dao;
+package fr.utbm.school.core.dao;
 
 import fr.utbm.school.core.entity.Course;
 
@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 @Transactional
 public interface EntityCourseDao {
-
 
     Course getCourseById(String courseId);
 
@@ -31,5 +30,13 @@ public interface EntityCourseDao {
     Course delete(Course course);
 
     ArrayList<String> getCourseKeyword();
+
+    Integer getNbPageNeeded();
+
+    Integer getNbPageNeeded(String keyword);
+
+    ArrayList<Course> getListCourse(Integer pageNumber);
+
+    ArrayList<Course> getCourseByKeyword(String keyword, Integer pageNumber);
 
 }
